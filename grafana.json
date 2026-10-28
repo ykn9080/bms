@@ -1,0 +1,733 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 40,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 18
+              },
+              {
+                "color": "green",
+                "value": 20
+              },
+              {
+                "color": "yellow",
+                "value": 24.0001
+              },
+              {
+                "color": "red",
+                "value": 28
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {
+          "titleSize": 20
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\r\n  |> last()",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1500,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {
+          "titleSize": 20
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"co2\")\r\n  |> last()",
+          "refId": "A"
+        }
+      ],
+      "title": "CO2",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {
+          "titleSize": 20
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> last()",
+          "refId": "A"
+        }
+      ],
+      "title": "Humidity",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 1000,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 60
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto",
+        "text": {
+          "titleSize": 200
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"lux\")\r\n  |> last()",
+          "refId": "A"
+        }
+      ],
+      "title": "Lux",
+      "type": "gauge"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 18,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div id=\"root\">\n  <!-- 접힌 상태: Simulation 버튼만 -->\n  <div id=\"collapsed\" class=\"collapsed show\">\n    <button class=\"sim-btn\" onclick=\"toggleOpen(true)\">\n      <svg class=\"sim-icon\" viewBox=\"0 0 512 512\" aria-hidden=\"true\">\n        <line x1=\"40\" y1=\"90\" x2=\"472\" y2=\"90\" stroke=\"#2d3a4e\" stroke-width=\"30\" stroke-linecap=\"round\"/>\n        <circle cx=\"340\" cy=\"90\" r=\"70\" fill=\"#2d3a4e\"/>\n        <circle cx=\"340\" cy=\"90\" r=\"42\" fill=\"#0099c6\"/>\n        <line x1=\"40\" y1=\"256\" x2=\"472\" y2=\"256\" stroke=\"#2d3a4e\" stroke-width=\"30\" stroke-linecap=\"round\"/>\n        <circle cx=\"172\" cy=\"256\" r=\"70\" fill=\"#2d3a4e\"/>\n        <circle cx=\"172\" cy=\"256\" r=\"42\" fill=\"#f5b400\"/>\n        <line x1=\"40\" y1=\"420\" x2=\"472\" y2=\"420\" stroke=\"#2d3a4e\" stroke-width=\"30\" stroke-linecap=\"round\"/>\n        <circle cx=\"340\" cy=\"420\" r=\"70\" fill=\"#2d3a4e\"/>\n        <circle cx=\"340\" cy=\"420\" r=\"42\" fill=\"#c8104e\"/>\n      </svg>\n      <span>Simulation</span>\n    </button>\n  </div>\n\n  <!-- 펼친 상태 -->\n  <div class=\"wrap\" id=\"wrap\">\n    <div class=\"panel left\">\n      <div class=\"ptitle\">Simulate</div>\n      <div class=\"btns\">\n        <button class=\"btn\" onclick=\"send('ANOMALY_TEMP',this)\">Hot</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_TEMP_LOW',this)\">Cold</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_HUMI',this)\">Humid</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_CO2',this)\">CO2</button>\n        <button class=\"btn\" onclick=\"send('OCCUPY_OFF',this)\">퇴실</button>\n        <button class=\"btn\" onclick=\"send('RESET',this)\">Reset</button>\n      </div>\n    </div>\n\n    <div class=\"panel mid\">\n      <div class=\"ptitle\">Status</div>\n      <div class=\"status-grid\">\n        <!-- 평상시: 상태 램프 + 메시지 -->\n        <div id=\"status-normal\">\n          <div class=\"lamps\">\n            <div class=\"lampbox\" data-lamp=\"normal\" style=\"--c:#4caf50\"><div class=\"lamp\"></div><span>정상</span></div>\n            <div class=\"lampbox\" data-lamp=\"alert\" style=\"--c:#f44336\"><div class=\"lamp\"></div><span>이상</span></div>\n            <div class=\"lampbox\" data-lamp=\"run\" style=\"--c:#ff9800\"><div class=\"siren\">🚨</div><span>장비작동</span></div>\n          </div>\n          <div class=\"msgText msg\">데이터 대기 중...</div>\n        </div>\n\n        <!-- 시연 중: 진행 바 + 시각 + 인원 + 조도 + 절감 -->\n        <div id=\"status-demo\" style=\"display:none;\">\n          <div class=\"demo-bar\"><div id=\"demo-fill\"></div><span id=\"demo-pct\">0%</span></div>\n          <div class=\"demo-time\" id=\"demo-time\">--:--</div>\n          <div class=\"demo-row\">인원 <b id=\"demo-people\">0/400</b></div>\n          <div class=\"demo-row\">Lux <b id=\"demo-lux\">0</b> <span class=\"dim\">/ max 400</span></div>\n          <div class=\"demo-row\">Savings <b id=\"demo-savings\">0 lux</b> <span class=\"dim\" id=\"demo-savings-pct\">(0%)</span></div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"panel right\">\n      <div class=\"ptitle\">Equipment</div>\n      <div class=\"devs\">\n        <div class=\"dev\" id=\"d-chiller\"><span class=\"ico\">❄️</span><span class=\"nm\">Chiller</span></div>\n        <div class=\"dev\" id=\"d-heater\"><span class=\"ico\">🔥</span><span class=\"nm\">Heater</span></div>\n        <div class=\"dev\" id=\"d-humidifier\"><span class=\"ico\">💧</span><span class=\"nm\">Humidifier</span></div>\n        <div class=\"dev\" id=\"d-dehumidifier\"><span class=\"ico\">🌫️</span><span class=\"nm\">Dehumidifier</span></div>\n        <div class=\"dev\" id=\"d-ahu\"><span class=\"ico\">🌬️</span><span class=\"nm\">AHU</span></div>\n      </div>\n    </div>\n\n    <!-- 끄기: 맨 오른쪽 (모바일에서는 상단 우측으로 이동) -->\n    <div class=\"close-col\">\n      <button class=\"close-btn\" onclick=\"toggleOpen(false)\" title=\"끄기\" aria-label=\"끄기\">\n        <svg viewBox=\"0 0 512 512\" aria-hidden=\"true\">\n          <path d=\"M152 44h208a108 108 0 0 1 108 108v208a108 108 0 0 1-108 108H152A108 108 0 0 1 44 360V152A108 108 0 0 1 152 44z\"\n                fill=\"none\" stroke=\"#fff\" stroke-width=\"42\" stroke-linejoin=\"round\"/>\n          <line x1=\"190\" y1=\"190\" x2=\"322\" y2=\"322\" stroke=\"#fff\" stroke-width=\"42\" stroke-linecap=\"round\"/>\n          <line x1=\"322\" y1=\"190\" x2=\"190\" y2=\"322\" stroke=\"#fff\" stroke-width=\"42\" stroke-linecap=\"round\"/>\n        </svg>\n      </button>\n    </div>\n  </div>\n</div>\n\n<style>\n  #root { width:100%; height:15vh; min-height:0; box-sizing:border-box; padding:4px; background:transparent;\n          color:#e0e0e0; font-family:sans-serif; font-size:16px; display:flex; overflow:hidden; }\n\n  .collapsed { display:none; width:100%; height:100%; box-sizing:border-box; align-items:center; justify-content:center; }\n  .collapsed.show { display:flex; }\n\n  .sim-btn { display:inline-flex; align-items:center; gap:6px; height:30px; padding:0 12px;\n             border:none; border-radius:5px; background:#1e88e5; color:#fff; font-size:16px; font-weight:bold;\n             cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,.3); transition:all .2s; }\n  .sim-btn:hover { filter:brightness(1.2); }\n  .sim-btn:active { transform:translateY(1px); }\n  .sim-icon { width:20px; height:20px; flex:0 0 auto; }\n\n  .wrap { display:none; width:100%; height:100%; gap:6px; padding:0; box-sizing:border-box; }\n  .wrap.open { display:flex; }\n\n  .panel { flex:1 1 0; min-width:0; height:100%; background:#22252b; border-radius:5px; padding:4px 6px;\n           box-sizing:border-box; display:flex; flex-direction:column; gap:4px; overflow:hidden; }\n  .left  { flex-grow:1.1; }\n  .mid   { flex-grow:1.1; }\n  .right { flex-grow:1.4; }\n\n  .ptitle { font-size:14px; font-weight:bold; color:#90a4ae; border-left:3px solid #546e7a; padding-left:5px;\n            line-height:15px; }\n\n  .close-col { flex:0 0 28px; height:100%; box-sizing:border-box; display:flex; align-items:flex-start; justify-content:center;\n               padding-top:4px; }\n  .close-btn { border:none; background:transparent; padding:0; margin:0; width:20px; height:20px;\n               cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }\n  .close-btn svg { width:20px; height:20px; display:block; }\n  .close-btn:hover { opacity:.75; }\n  .close-btn:active { transform:translateY(1px); }\n\n  .status-grid { flex:1; min-height:0; display:grid; grid-template-rows:1fr 1fr; gap:4px; align-items:center; }\n  #status-normal { display:block; }\n  #status-demo { display:flex; flex-direction:column; justify-content:center; gap:3px; height:100%;\n                 color:#e0e0e0; font-size:13px; line-height:16px; }\n  .demo-bar { position:relative; height:14px; background:#181b1f; border-radius:4px; overflow:hidden; }\n  #demo-fill { height:100%; width:0%; background:#42a5f5; transition:width .4s; }\n  #demo-pct { position:absolute; inset:0; text-align:center; font-size:11px; line-height:14px; color:#fff; }\n  .demo-time { font-size:18px; font-weight:bold; text-align:center; color:#fff; }\n  .demo-row { text-align:center; }\n  .demo-row b { color:#fff; }\n  .dim { color:#90a4ae; font-size:11px; }\n\n  .btns { flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); gap:4px; }\n  .btn { border:none; color:#fff; background:#1e88e5; font-weight:bold; font-size:14px;\n         border-radius:4px; cursor:pointer; box-shadow:0 1px 3px rgba(0,0,0,.3); transition:all .2s;\n         display:flex; align-items:center; justify-content:center; padding:0; }\n  .btn:hover { filter:brightness(1.2); }\n  .btn:active { transform:translateY(1px); }\n  .btn:disabled { opacity:.5; }\n\n  .lamps { display:flex; justify-content:space-around; align-items:center; }\n  .lampbox { display:flex; align-items:center; gap:4px; font-size:16px; line-height:17px; opacity:.3; transition:all .3s; }\n  .lampbox.on { opacity:1; }\n  .lamp { width:20px; height:20px; border-radius:50%; background:#3a3f48; }\n  .lampbox.on .lamp { background:var(--c); box-shadow:0 0 6px var(--c); }\n  .lampbox[data-lamp=\"alert\"].on .lamp { animation:blink 1s infinite; }\n  .siren { font-size:16px; line-height:17px; filter:grayscale(1); }\n  .lampbox[data-lamp=\"run\"].on .siren { filter:none; animation:blink .6s infinite; }\n  @keyframes blink { 50% { opacity:.3; } }\n\n  .msg { text-align:center; padding:1px 4px; border-radius:4px; background:#181b1f;\n         font-weight:bold; font-size:14px; line-height:17px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n\n  .devs { flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); gap:4px; }\n  .dev { box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:3px; padding:0 3px;\n         border:1px solid #333; border-radius:6px; background:#1f2228; color:#777; transition:all .4s; min-width:0; }\n  .dev .ico { font-size:20px; line-height:1; }\n  .dev .nm  { font-size:14px; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n  .dev.on { border-color:#42a5f5; color:#fff; box-shadow:0 0 6px rgba(66,165,245,.6); }\n  .dev.on .ico { animation:pulse 1.2s ease-in-out infinite; }\n  @keyframes pulse { 50% { transform:scale(1.2); } }\n\n  @media (max-width: 768px) {\n    #root { height:auto; min-height:15vh; overflow:visible; flex-direction:column; }\n    .wrap { flex-direction:column; height:auto; }\n    .wrap.open { display:flex; }\n    .panel { height:auto; flex:none; width:100%; }\n    .btns { grid-template-columns:repeat(3,1fr); grid-template-rows:auto; }\n    .btn { height:44px; font-size:16px; }\n    .status-grid { grid-template-rows:auto auto; }\n    .lampbox { font-size:15px; }\n    .devs { grid-template-columns:repeat(3,1fr); grid-template-rows:auto auto; }\n    .dev { height:48px; }\n    .close-col { position:absolute; top:6px; right:6px; width:auto; height:auto; padding:0; }\n    #root { position:relative; }\n    .collapsed { height:auto; padding:10px; }\n    .sim-btn { height:44px; font-size:16px; padding:0 18px; }\n  }\n</style>\n\n<script>\n  const TOKEN = 'demo-token-change-me';\n  const API = 'http://localhost:1880';\n\n  function toggleOpen(open) {\n    document.getElementById('collapsed').classList.toggle('show', !open);\n    document.getElementById('wrap').classList.toggle('open', open);\n  }\n\n  const LAMP = { NORMAL:'normal', RECOVERED:'normal',\n                 ANOMALY:'alert', DETECTED:'alert', SEVERE:'alert',\n                 MITIGATING:'run' };\n  const TXT = {\n    NORMAL: '정상 운전 중',\n    RECOVERED: '정상화 완료 - 정상 운전 복귀',\n    ANOMALY: '이상 발생 - 수치 상승 중',\n    DETECTED: '이상 감지 - 임계값 초과',\n    SEVERE: '심각 - 장비 자동 기동 대기',\n    MITIGATING: '장비 작동 중 - 자동 조치'\n  };\n  const ANOM = { temp:'온도', tempLow:'저온', humi:'습도', co2:'CO2' };\n  const DEV = { chiller:'d-chiller', heater:'d-heater', humidifier:'d-humidifier',\n                dehumidifier:'d-dehumidifier', ahu:'d-ahu' };\n\n  function setMsg(text) {\n    document.querySelectorAll('.msgText').forEach(el => el.textContent = text);\n  }\n\n  function showDemo(s) {\n    document.getElementById('status-normal').style.display = 'none';\n    document.getElementById('status-demo').style.display = 'flex';\n\n    const pct = Math.max(0, Math.min(100, s.progress_pct ?? 0));\n    document.getElementById('demo-fill').style.width = pct + '%';\n    document.getElementById('demo-pct').textContent = pct + '%';\n    document.getElementById('demo-time').textContent = s.time ?? '--:--';\n    document.getElementById('demo-people').textContent = `${s.people ?? 0}/400`;\n    document.getElementById('demo-lux').textContent = Math.round(s.lux ?? 0);\n    document.getElementById('demo-savings').textContent = `${400 - Math.round(s.lux ?? 0)} lux`;\n    document.getElementById('demo-savings-pct').textContent = `(${s.savings_pct ?? 0}%)`;\n  }\n\n  function showNormal(s) {\n    document.getElementById('status-demo').style.display = 'none';\n    document.getElementById('status-normal').style.display = 'block';\n\n    const kind = LAMP[s.stage] || 'normal';\n    document.querySelectorAll('[data-lamp]').forEach(el => {\n      el.classList.toggle('on', el.dataset.lamp === kind);\n    });\n    let text = TXT[s.stage] || '';\n    if (s.anomaly_type) text += ` (${ANOM[s.anomaly_type] || s.anomaly_type})`;\n    setMsg(text);\n\n    const eq = s.equipment || {};\n    for (const k in DEV) {\n      document.getElementById(DEV[k]).classList.toggle('on', !!eq[k]);\n    }\n  }\n\n  async function send(action, btn) {\n    btn.disabled = true;\n    setMsg(`명령 전송 중: ${action}`);\n    try {\n      const r = await fetch(`${API}/grafana-trigger?action=${encodeURIComponent(action)}&token=${TOKEN}`,\n                            { cache: 'no-store' });\n      if (!r.ok) throw new Error('HTTP ' + r.status);\n      setMsg(`명령 전송됨: ${action}`);\n      poll();\n    } catch (e) {\n      setMsg('전송 실패: ' + e.message);\n    } finally {\n      btn.disabled = false;\n    }\n  }\n\n  async function poll() {\n    try {\n      const r = await fetch(`${API}/grafana-status?token=${TOKEN}`, { cache: 'no-store' });\n      if (!r.ok) throw new Error(r.status);\n      const s = await r.json();\n      if (s.mode === 'DEMO') showDemo(s);\n      else showNormal(s);\n    } catch (e) {\n      setMsg('Node-RED 연결 끊김');\n    }\n  }\n\n  poll();\n  setInterval(poll, 2000);\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.2",
+      "title": "",
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 6,
+        "x": 0,
+        "y": 12
+      },
+      "id": 19,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div id=\"occ-demo\" style=\"background:#181b1f;color:#e0e0e0;font-family:sans-serif;font-size:12px;padding:4px;\">\n  <div id=\"demo-bar\" style=\"display:none;padding:4px 6px;background:#22252b;margin-bottom:4px;\"></div>\n  <table id=\"occ-table\" style=\"width:100%;border-collapse:collapse;\"></table>\n</div>\n<style>\n  #occ-table th, #occ-table td { border:1px solid #333; padding:2px 4px; text-align:center; }\n  #occ-table td.on { background:#f8de37b8; color:#000; }\n  #occ-table td.off { background:#1d251c; color:#666; }\n</style>\n\n<script>\n(() => {\n  const OCC_TOKEN = 'demo-token-change-me';\n  const OCC_API = 'http://localhost:1880';\n\n  function renderOccupancy(occ) {\n    const cols = ['A', 'B', 'C', 'D'];\n    let html = '<tr><th>floor</th>' + cols.map(c => `<th>${c}</th>`).join('') + '</tr>';\n    for (let f = 10; f >= 1; f--) {\n      html += `<tr><td>${f}F</td>`;\n      for (const c of cols) {\n        const n = occ[`${f}F_${c}`] ?? 0;\n        html += `<td class=\"${n > 0 ? 'on' : 'off'}\">${n}</td>`;\n      }\n      html += '</tr>';\n    }\n    const total = Object.values(occ).reduce((a, b) => a + b, 0);\n    html += `<tr><td>Total</td><td colspan=\"4\">${total}</td></tr>`;\n    document.getElementById('occ-table').innerHTML = html;\n  }\n\n  async function occPoll() {\n    try {\n      const r = await fetch(`${OCC_API}/grafana-status?token=${OCC_TOKEN}`, { cache: 'no-store' });\n      const s = await r.json();\n\n      if (s.occupancy) renderOccupancy(s.occupancy);\n\n      const bar = document.getElementById('demo-bar');\n      if (s.mode === 'DEMO') {\n        bar.style.display = 'block';\n        bar.textContent =\n          `[07:00~21:00 시연] 진행 ${s.progress_pct}% | ${s.time} | 인원 ${s.people}명 | ` +\n          `외부 ${s.outdoor_lux}lx | 실내 ${s.lux}lx | 절감 ${s.savings_pct}%`;\n      } else {\n        bar.style.display = 'none';\n      }\n    } catch (e) { /* 연결 실패 시 기존 표 유지 */ }\n  }\n\n  occPoll();\n  setInterval(occPoll, 2000);\n})();\n</script>",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.2",
+      "title": "Panel Title",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-background"
+            },
+            "filterable": false,
+            "inspect": false,
+            "minWidth": 50
+          },
+          "fieldMinMax": true,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "0"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#1d251c",
+                "value": null
+              },
+              {
+                "color": "#67673c",
+                "value": 0
+              },
+              {
+                "color": "#f8de37b8",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 5,
+        "x": 10,
+        "y": 12
+      },
+      "id": 14,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "reducer": [
+            "sum"
+          ],
+          "show": true
+        },
+        "frameIndex": 2,
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "import \"strings\"\r\n\r\nfrom(bucket: \"node_red_bucket\")\r\n  |> range(start: -1m)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] =~ /^occ_/)\r\n  |> last()\r\n  |> map(fn: (r) => ({\r\n      r with\r\n      floor: strings.split(v: strings.trimPrefix(v: r._field, prefix: \"occ_\"), t: \"_\")[0],\r\n      room:  strings.split(v: strings.trimPrefix(v: r._field, prefix: \"occ_\"), t: \"_\")[1]\r\n  }))\r\n  |> keep(columns: [\"floor\", \"room\", \"_value\"])\r\n  |> pivot(rowKey: [\"floor\"], columnKey: [\"room\"], valueColumn: \"_value\")\r\n  |> sort(columns: [\"floor\"], desc: true)",
+          "refId": "A"
+        }
+      ],
+      "title": "People In the building",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 9,
+        "x": 15,
+        "y": 12
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "eg18i4yqw51q8a"
+          },
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"power_consumption\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "refId": "A"
+        }
+      ],
+      "title": "Power Consumption",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 9,
+        "x": 0,
+        "y": 24
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "refId": "A"
+        }
+      ],
+      "title": "Humidity",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 9,
+        "x": 0,
+        "y": 32
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "query": "from(bucket: \"node_red_bucket\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"co2\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\r\n  |> yield(name: \"mean\")",
+          "refId": "A"
+        }
+      ],
+      "title": "CO2",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "smart building demo",
+  "uid": "cg1gz54ykzhmoe",
+  "version": 130,
+  "weekStart": ""
+}

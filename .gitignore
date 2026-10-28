@@ -1,4 +1,4 @@
-./aws_certs
+aws_certs/
 docker-compose.yml.save
 docker-compose.yml-bak
 extract_nodered.sh
