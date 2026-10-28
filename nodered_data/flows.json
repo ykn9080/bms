@@ -1,0 +1,2639 @@
+[
+    {
+        "id": "f08fa4dd96ae2cb6",
+        "type": "tab",
+        "label": "스마트 빌딩 DDC 데모 (v2)",
+        "disabled": false
+    },
+    {
+        "id": "4d46e357b567aa4b",
+        "type": "tab",
+        "label": "스마트 빌딩 DDC 데모 (v2)",
+        "disabled": false
+    },
+    {
+        "id": "ddc-complete-tab",
+        "type": "tab",
+        "label": "🏢 완성된 DDC 시스템",
+        "disabled": false
+    },
+    {
+        "id": "13821ed682a03952",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "influx_In",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb_local:8086",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "4601bad1e9115fec",
+        "type": "tls-config",
+        "name": "AWS_TLS_인증서_최종바인딩",
+        "cert": "",
+        "key": "",
+        "p12": "",
+        "p12name": "",
+        "ca": "",
+        "certname": "04f39d75cf099f5df44499d1df4ec13ea1f5eb6dea98a114b5ac261d29bb7a8c-certificate.pem.crt",
+        "keyname": "04f39d75cf099f5df44499d1df4ec13ea1f5eb6dea98a114b5ac261d29bb7a8c-private.pem.key",
+        "caname": "AmazonRootCA1.pem",
+        "servername": "",
+        "verifyservercert": true,
+        "alpnprotocol": "",
+        "certEnv": "",
+        "keyEnv": "",
+        "caEnv": ""
+    },
+    {
+        "id": "835433f9af98ec0e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.33.0",
+            "node-red-contrib-influxdb": "0.7.0",
+            "node-red-node-smooth": "0.1.2"
+        }
+    },
+    {
+        "id": "f1ab5f01d0dd5191",
+        "type": "mqtt-broker",
+        "name": "AWS_IoT_Core_Fixed_Broker",
+        "broker": "a1wvphcfzq9xp5-ats.iot.ap-northeast-2.amazonaws.com",
+        "port": "8883",
+        "tls": "4601bad1e9115fec",
+        "clientid": "Building_DDC_Broker",
+        "autoConnect": true,
+        "usetls": true,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "30",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8855b363172c21fa",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "influx-config",
+        "type": "influxdb",
+        "hostname": "influxdb_local",
+        "port": 8086,
+        "protocol": "http",
+        "database": "iot_db",
+        "name": "InfluxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb_local:8086",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "aws-iot-broker",
+        "type": "mqtt-broker",
+        "name": "AWS IoT Core",
+        "broker": "a1wvphcfzq9xp5-ats.iot.ap-northeast-2.amazonaws.com",
+        "port": "8883",
+        "tls": "4601bad1e9115fec",
+        "clientid": "ddc_device",
+        "autoConnect": true,
+        "usetls": true,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "30",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "postgres-config-fixed",
+        "type": "postgreSQLConfig",
+        "name": "PostgreSQL 로컬",
+        "host": "iot-postgres",
+        "hostFieldType": "str",
+        "port": 5432,
+        "portFieldType": "num",
+        "database": "postgres",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "node-red",
+        "applicationNameType": "str",
+        "max": 10,
+        "maxFieldType": "num",
+        "idle": 1000,
+        "idleFieldType": "num",
+        "connectionTimeout": 10000,
+        "connectionTimeoutFieldType": "num",
+        "userFieldType": "cred",
+        "userEnv": "",
+        "passwordFieldType": "cred",
+        "passwordEnv": ""
+    },
+    {
+        "id": "fc437b5049fb81b2",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "564828bc88edb76c",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "77750bee50933780",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "fc437b5049fb81b2",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "564828bc88edb76c",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1280",
+                "cols": "12"
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "0fb86845d3ab4c0b",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "77750bee50933780",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "97425f5b8d8e510e",
+        "type": "ui-switch",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "메인 전등 제어",
+        "label": "Light on/off",
+        "group": "0fb86845d3ab4c0b",
+        "order": 7,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "building/BUILDING_01/light_cmd",
+        "topicType": "str",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "label",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 80,
+        "y": 680,
+        "wires": [
+            [
+                "92e94a3bb7a84e0e",
+                "708bac74b49de269"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "92e94a3bb7a84e0e",
+        "type": "ui-text",
+        "z": "f08fa4dd96ae2cb6",
+        "group": "0fb86845d3ab4c0b",
+        "order": 8,
+        "width": "1",
+        "height": "1",
+        "name": "전등 상태 표시",
+        "label": "현재 전등 상태: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": true,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 240,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "e0e23fbeaecd53f4",
+        "type": "ui-chart",
+        "z": "f08fa4dd96ae2cb6",
+        "group": "0fb86845d3ab4c0b",
+        "name": "전력량",
+        "label": "Power Consumption",
+        "order": 6,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "시간",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "400",
+        "ymax": "800",
+        "bins": "",
+        "action": "replace",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "1",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "8",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 930,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "498d8b0f85a6fa8d",
+        "type": "mqtt out",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "AWS_iot_Publish",
+        "topic": "test",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1ab5f01d0dd5191",
+        "x": 1050,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "9dbaab09cd8f2be5",
+        "type": "mqtt in",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "AWS_iot_Subscribe",
+        "topic": "test",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "f1ab5f01d0dd5191",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 440,
+        "wires": [
+            [
+                "1e869404189d630b",
+                "bcbe3a2ee81db21c"
+            ]
+        ]
+    },
+    {
+        "id": "708bac74b49de269",
+        "type": "mqtt out",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "AWS_Publish_Light",
+        "topic": "building/BUILDING_01/light_cmd",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1ab5f01d0dd5191",
+        "x": 250,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1e869404189d630b",
+        "type": "influxdb out",
+        "z": "f08fa4dd96ae2cb6",
+        "influxdb": "13821ed682a03952",
+        "name": "influxdb_save",
+        "measurement": "sensor_data",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "yknam",
+        "bucket": "node_red_bucket",
+        "x": 380,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "bcbe3a2ee81db21c",
+        "type": "influxdb in",
+        "z": "f08fa4dd96ae2cb6",
+        "influxdb": "13821ed682a03952",
+        "name": "influxdb_read",
+        "query": "from(bucket: \"node_red_bucket\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\" or \n                       r[\"_field\"] == \"humidity\" or \n                       r[\"_field\"] == \"power_consumption\" or \n                       r[\"_field\"] == \"co2\" or \n                       r[\"_field\"] == \"lux\" )\n  |> aggregateWindow(every: 5s, fn: mean, createEmpty: false)\n  |> sort(columns: [\"_time\"], desc: false) \n  // [보완] 시간 오름차순 정렬을 확정하여 루프 끝에 '최신값'이 오도록 보장",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "yknam",
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "8b1d645d46cdca0b"
+            ]
+        ]
+    },
+    {
+        "id": "8b1d645d46cdca0b",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "dashboard용 data",
+        "func": "const chartPoints = [];\nconst latestGaugeData = {};\n\n// 1. InfluxDB 데이터 안전 검증 및 루프 순회\nif (Array.isArray(msg.payload)) {\n    msg.payload.forEach(item => {\n        const fieldName = item._field;\n        let value = item._value;\n        if (value === null || value === undefined) return;\n\n        // 타임스탬프 밀리초 파싱 보장\n        let timeMillis = 0;\n        if (typeof item._time === 'number') {\n            timeMillis = item._time;\n        } else if (typeof item._time === 'string') {\n            timeMillis = new Date(item._time).getTime();\n        } else if (item._time instanceof Date) {\n            timeMillis = item._time.getTime();\n        }\n\n        if (!timeMillis || isNaN(timeMillis)) {\n            timeMillis = Date.now();\n        }\n\n        // 2. 전력 소비량 차트 데이터 적재 (차트 노드 설정인 category: topic에 대응)\n        if (fieldName === \"power_consumption\") {\n            chartPoints.push({\n                x: timeMillis,             // xAxisProperty: \"x\"와 매칭\n                y: Number(value.toFixed(1)) // yAxisProperty: \"y\"와 매칭\n            });\n        } else {\n            // 3. 환경 센서 게이지 데이터 적재\n            let roundedValue;\n            if (fieldName === \"temperature\") {\n                roundedValue = Number(value.toFixed(1)); \n            } else if (fieldName === \"humidity\" || fieldName === \"co2\" || fieldName === \"lux\") {\n                roundedValue = Math.round(value); \n            } else {\n                roundedValue = value;\n            }\n\n            latestGaugeData[fieldName] = roundedValue;\n        }\n    });\n}\n\n// --- 1번 출력 (위쪽 포트): Dashboard 2.0 ui-chart(category: topic) 전용 포맷 ---\n// 차트 노드 설정이 \"category\": \"topic\" 이므로, msg.topic에 시리즈명을 넣고 payload에 순수 [{x, y}] 배열을 보냅니다.\nconst msgLine = {\n    topic: \"Power Consumption\", // 차트 범례에 표시될 이름\n    action: \"replace\",\n    payload: chartPoints        // 순수 [{x: 타임스탬프, y: 값}] 구조의 플랫 배열\n};\n\n// --- 2번 출력 (아래쪽 포트): 게이지 노드용 스트림 분기 패킷 ---\nconst msgGauges = Object.keys(latestGaugeData).map(key => {\n    return {\n        topic: key,\n        payload: latestGaugeData[key]\n    };\n});\n\nreturn [msgLine, msgGauges];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 540,
+        "wires": [
+            [
+                "cb3886ba48823456"
+            ],
+            [
+                "77e93b016d60328d"
+            ]
+        ]
+    },
+    {
+        "id": "77e93b016d60328d",
+        "type": "switch",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "humidity",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "lux",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "co2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 770,
+        "y": 540,
+        "wires": [
+            [
+                "ab59bc3166310e3c"
+            ],
+            [
+                "fd0eb5d556fa7278"
+            ],
+            [
+                "135b54be7a2b92b0"
+            ],
+            [
+                "063552c4adde629a"
+            ]
+        ]
+    },
+    {
+        "id": "9b127178e390cb7b",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Postgres 삽입문",
+        "func": "const p = msg.payload;\n\n// 유효성 검사: 객체가 아니거나 timestamp가 없으면 저장하지 않음\nif (!p || typeof p !== 'object' || !p.timestamp) return null;\n\nmsg.topic = `INSERT INTO sensor_data\n    (timestamp, temperature, humidity, co2, lux, occupied, power_consumption, quality_score)\n    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;\n\nmsg.payload = [\n    new Date(Number(p.timestamp)).toISOString(),\n    p.temperature ?? null,\n    p.humidity ?? null,\n    p.co2 ?? null,\n    p.lux ?? null,\n    p.occupied === true || p.occupied === 'true',\n    p.power_consumption ?? null,\n    p.quality_score ?? null\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 120,
+        "wires": [
+            [
+                "9c910a8fe644c786"
+            ]
+        ]
+    },
+    {
+        "id": "9c910a8fe644c786",
+        "type": "postgresql",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Postgres실행",
+        "query": "",
+        "postgreSQLConfig": "postgres-config-fixed",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 1170,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dc49e0f535d2853b",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "이상 데이터 판별",
+        "func": "// ===== 기준값 (생성기와 동일하게 유지) =====\nconst LIMIT = {\n    TEMP_LOW: 18,         // 이하 → 비정상 (HEAT_ON 대상)\n    TEMP_HIGH: 27,        // 이상 → 비정상 (COOL_ON 대상)\n    HUMI_LOW: 40,         // 미만 → 비정상\n    HUMI_HIGH: 60,        // 초과 → 비정상\n    CO2_WARN: 800,        // 초과 → 주의\n    CO2_ABNORMAL: 1000    // 초과 → 비정상\n};\nconst RATE_LIMIT = 4.5;   // 온도 변화율 허용치 (5초 기준)\n\n// ===== 1건 평가 =====\nfunction evaluate(p) {\n    const issues = [];\n    const skipRate = p.disable_rate_check ?? false;\n\n    // 온도\n    const lastTemp = context.get('lastTemp') ?? p.temperature;\n    context.set('lastTemp', p.temperature);\n\n    if (p.temperature <= LIMIT.TEMP_LOW) {\n        issues.push({ label: 'Temperature low (HEAT_ON)', penalty: 35 });\n    } else if (p.temperature >= LIMIT.TEMP_HIGH) {\n        issues.push({ label: 'Temperature high (COOL_ON)', penalty: 35 });\n    } else if (!skipRate && Math.abs(p.temperature - lastTemp) > RATE_LIMIT) {\n        issues.push({ label: 'Abnormal temp change', penalty: 35 });\n    }\n\n    // 습도\n    if (p.humidity < LIMIT.HUMI_LOW || p.humidity > LIMIT.HUMI_HIGH) {\n        issues.push({ label: 'Humidity out of range (40~60)', penalty: 35 });\n    }\n\n    // CO2 (800 초과 주의, 1000 초과 비정상)\n    if (p.co2 > LIMIT.CO2_ABNORMAL) {\n        issues.push({ label: 'CO2 abnormal (>1000)', penalty: 35 });\n    } else if (p.co2 > LIMIT.CO2_WARN) {\n        issues.push({ label: 'CO2 warning (>800)', penalty: 15 });\n    }\n\n    const totalPenalty = issues.reduce((sum, i) => sum + i.penalty, 0);\n    return {\n        score: Math.max(0, 100 - totalPenalty),\n        issues: issues.map(i => i.label)\n    };\n}\n\n// ===== 평가 후 비정상만 insert 메시지로 변환 =====\nconst records = Array.isArray(msg.payload) ? msg.payload : [msg.payload];\nconst insertMsgs = [];\n\nrecords.forEach(p => {\n    if (!p || typeof p !== 'object') return;\n\n    const r = evaluate(p);\n    if (r.score >= 100) return;   // 정상 → 제외\n\n    insertMsgs.push({\n        topic: `INSERT INTO abnormal_data\n                (event_time, temperature, humidity, co2, power_consumption,\n                 quality_score, issues, system_state, anomaly_type)\n                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,\n        payload: [\n            new Date(p.timestamp).toISOString(),\n            p.temperature,\n            p.humidity,\n            p.co2,\n            p.power_consumption,\n            r.score,\n            r.issues.join(', '),\n            p.system_state ?? null,\n            p.anomaly_type ?? null\n        ]\n    });\n});\n\n// 비정상이 없으면 아무것도 보내지 않음\nif (insertMsgs.length === 0) return null;\nreturn insertMsgs;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "9b127178e390cb7b"
+            ]
+        ]
+    },
+    {
+        "id": "cb3886ba48823456",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "차트UI",
+        "func": "// 기존 데이터(msg.payload)는 온전히 유지하면서 eCharts 축 제어 옵션을 주입합니다.\nmsg.ui_update = {\n    chartOptions: {\n        xAxis: [\n            {\n                axisLabel: {\n                    interval: 0,        // 0으로 지정하면 차트가 임의로 라벨을 생략하지 않고 모두 노출합니다.\n                    hideOverlap: false  // 좁은 공간에서 글자가 약간 겹치더라도 숨기지 않고 강제 표시합니다.\n                }\n            }\n        ]\n    }\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 460,
+        "wires": [
+            [
+                "e0e23fbeaecd53f4"
+            ]
+        ]
+    },
+    {
+        "id": "ab59bc3166310e3c",
+        "type": "ui-gauge",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "humidity",
+        "group": "0fb86845d3ab4c0b",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humidity",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "건조",
+                "textType": "label"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "정상",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ffc800",
+                "text": "주의",
+                "textType": "label"
+            },
+            {
+                "from": "90",
+                "color": "#ea5353",
+                "text": "위험",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 100,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 940,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fd0eb5d556fa7278",
+        "type": "ui-gauge",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Temperature",
+        "group": "0fb86845d3ab4c0b",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "저온",
+                "textType": "label"
+            },
+            {
+                "from": "15",
+                "color": "#5cd65c",
+                "text": "정상",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353",
+                "text": "고온",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 950,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "135b54be7a2b92b0",
+        "type": "ui-gauge",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "lux",
+        "group": "0fb86845d3ab4c0b",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Lux",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "lx",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "어두움",
+                "textType": "label"
+            },
+            {
+                "from": "300",
+                "color": "#5cd65c",
+                "text": "적정",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "1000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 930,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "063552c4adde629a",
+        "type": "ui-gauge",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "co2",
+        "group": "0fb86845d3ab4c0b",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "CO2",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "ppm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "좋음",
+                "textType": "label"
+            },
+            {
+                "from": "800",
+                "color": "#ffc800",
+                "text": "일반",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#ea5353",
+                "text": "나쁨",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "3000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 930,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6af14d3f498432a2",
+        "type": "http in",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "trigger",
+        "url": "/grafana-trigger",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "4f698029bb68e929"
+            ]
+        ]
+    },
+    {
+        "id": "2cf7f12e568bc241",
+        "type": "http response",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 660,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "dbf3a22f97bd79d9",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "OK",
+        "func": "msg.statusCode = 200;\nmsg.headers = {\n    'Access-Control-Allow-Origin': 'http://localhost:3000'\n};\nmsg.payload = 'OK';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "2cf7f12e568bc241",
+                "bfa90ff1aba3eb58"
+            ]
+        ]
+    },
+    {
+        "id": "07a97e380eea3061",
+        "type": "http in",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "status",
+        "url": "/grafana-status",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "a63fe8d7dabbb0ac"
+            ]
+        ]
+    },
+    {
+        "id": "a63fe8d7dabbb0ac",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "status return",
+        "func": "const SECRET = 'demo-token-change-me';\nif (msg.req.query.token !== SECRET) {\n    msg.statusCode = 403;\n    msg.payload = 'Forbidden';\n    return msg;\n}\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Access-Control-Allow-Origin': 'http://localhost:3000'\n};\n\nconst sim = flow.get('simDay');\nconst demo = flow.get('simView');\n\nif (sim && sim.active && demo) {\n    msg.payload = demo;\n} else {\n    msg.payload = flow.get('simStatus') || { stage: 'NORMAL', equipment: {} };\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 60,
+        "wires": [
+            [
+                "2cf7f12e568bc241"
+            ]
+        ]
+    },
+    {
+        "id": "4f698029bb68e929",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Token_Chk",
+        "func": "const SECRET = 'demo-token-change-me';\n\nif (msg.req.query.token !== SECRET) {\n    return [msg, null];   // 출력1: 실패\n}\nreturn [null, msg];       // 출력2: 통과",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "df610dfb1f30d734"
+            ],
+            [
+                "dbf3a22f97bd79d9"
+            ]
+        ]
+    },
+    {
+        "id": "df610dfb1f30d734",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "403",
+        "func": "msg.statusCode = 403;\nmsg.headers = { 'Access-Control-Allow-Origin': 'http://localhost:3000' };\nmsg.payload = 'Forbidden';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "2cf7f12e568bc241"
+            ]
+        ]
+    },
+    {
+        "id": "731e6cd64915ec88",
+        "type": "inject",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "5초틱",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 260,
+        "wires": [
+            [
+                "bfa90ff1aba3eb58"
+            ]
+        ]
+    },
+    {
+        "id": "795bc7f9003e3407",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "재실인원생성",
+        "func": "// 1. 상태 로드 (40실, 0명 초기화)\nlet rooms = flow.get('rooms');\nif (!rooms) {\n    rooms = {};\n    for (let f = 1; f <= 10; f++) {\n        for (const r of ['A', 'B', 'C', 'D']) {\n            rooms[`${f}F_${r}`] = 0;\n        }\n    }\n}\n\n// 2. 시각 결정: 시연 중이면 가상 시각, 아니면 실제 시각\nconst sim = flow.get('simDay');\nlet minuteOfDay;\nif (sim && sim.active) {\n    minuteOfDay = sim.simMinute;\n} else {\n    const now = new Date();\n    minuteOfDay = now.getHours() * 60 + now.getMinutes();\n}\nconst hour = Math.floor(minuteOfDay / 60);\n\n// 3. 시간대별 목표 인원: 앵커 사이를 선형 보간 (수용 400명 기준)\nconst CAPACITY = 400;\nconst ANCHORS = [\n    { m: 0,        pct: 0.05 },   // 00:00 야간\n    { m: 7 * 60,   pct: 0.05 },   // 07:00 출근 시작\n    { m: 9 * 60,   pct: 0.90 },   // 09:00 출근 완료\n    { m: 13 * 60,  pct: 0.70 },   // 13:00 오후\n    { m: 17 * 60,  pct: 0.70 },   // 17:00 퇴근 시작\n    { m: 19 * 60,  pct: 0.05 },   // 19:00 퇴근 완료\n    { m: 24 * 60,  pct: 0.05 }\n];\n\nfunction targetAt(m) {\n    for (let i = 0; i < ANCHORS.length - 1; i++) {\n        const a = ANCHORS[i], b = ANCHORS[i + 1];\n        if (m >= a.m && m <= b.m) {\n            const t = (m - a.m) / (b.m - a.m);\n            return (a.pct + (b.pct - a.pct) * t) * CAPACITY;\n        }\n    }\n    return 0.05 * CAPACITY;\n}\n\nconst targetTotal = Math.round(targetAt(minuteOfDay));\n\n// 4. 목표에 맞춰 실별 증감 (목표보다 적으면 +, 많으면 -)\nlet currentTotal = Object.values(rooms).reduce((a, b) => a + b, 0);\nconst gap = targetTotal - currentTotal;                // 부족/초과 인원\nconst moves = Math.min(Math.abs(gap), 200);   // 틱당 최대 200명 이동\nconst dir = gap > 0 ? 1 : -1;\n\nconst keys = Object.keys(rooms);\nfor (let i = 0; i < moves; i++) {\n    // 증가면 10명 미만인 실, 감소면 1명 이상인 실 중에서만 선택\n    const candidates = keys.filter(k =>\n        dir > 0 ? rooms[k] < 10 : rooms[k] > 0\n    );\n    if (candidates.length === 0) break;\n    const key = candidates[Math.floor(Math.random() * candidates.length)];\n    rooms[key] += dir;\n    currentTotal += dir;\n    node.warn('People: min=' + minuteOfDay + ' target=' + targetTotal + ' total=' + currentTotal);\n}\n\n// 5. 상태 저장 (flow)\nflow.set('rooms', rooms);\n\n// 6. 다음 노드로 전달\nmsg.rooms = rooms;\nmsg.totalPeople = currentTotal;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "eef0ad4ad26739df"
+            ]
+        ]
+    },
+    {
+        "id": "bfa90ff1aba3eb58",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "명령입력",
+        "func": "// 버튼/HTTP 명령을 읽어 상태 명령으로 정리\nconst CMD_MAP = {\n    ANOMALY_TEMP: 'temp',\n    ANOMALY_TEMP_LOW: 'tempLow',\n    ANOMALY_HUMI: 'humi',\n    ANOMALY_CO2: 'co2'\n};\n\nlet raw;\nif (msg.req && msg.req.query && msg.req.query.action !== undefined) {\n    raw = msg.req.query.action;\n} else if (typeof msg.payload === 'string') {\n    raw = msg.payload;\n}\nconst cmd = (raw === undefined) ? 'TICK' : String(raw).trim().toUpperCase();\n\nlet s = context.get('state') || {\n    anomaly: null, equipOn: false, detectTicks: 0, recovered: false,\n    temp: 22.0, humi: 45.0, co2: 550, lux: 350, occupied: false,\n    view: null\n};\n\nif (CMD_MAP[cmd] !== undefined) {\n    if (s.anomaly !== CMD_MAP[cmd]) {\n        s.anomaly = CMD_MAP[cmd];\n        s.equipOn = false;\n        s.detectTicks = 0;\n        s.recovered = false;\n    }\n} else if (cmd === 'RESET') {\n    s.anomaly = null;\n    s.equipOn = false;\n    s.detectTicks = 0;\n    s.recovered = false;\n} else if (cmd === 'OCCUPY_ON') {\n    s.occupied = true;\n\n\n} else if (cmd === 'OCCUPY_OFF') {\n    flow.set('simDay', {\n        active: true,\n        startMinute: 7 * 60,     // 07:00\n        endMinute: 21 * 60,      // 21:00\n        simMinute: 7 * 60,\n        stepMinute: 60,          // 틱당 60분\n        ticks: 0\n    });\n} else if (cmd !== 'TICK') {\n    node.warn(`알 수 없는 명령: [${cmd}]`);\n}\n\nmsg.state = s;\ncontext.set('state', s);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 260,
+        "wires": [
+            [
+                "9b8ab7d8f3a6a281"
+            ]
+        ]
+    },
+    {
+        "id": "9b8ab7d8f3a6a281",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "시나리오엔진",
+        "func": "\n\n// ---------- 설정 ----------\nconst SC = {\n    temp:    { sensor: 'temp', dir: 'high', detect: 28,   severe: 30,   ok: 24,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 45.0 },\n    tempLow: { sensor: 'temp', dir: 'low',  detect: 18,   severe: 15,   ok: 20,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 5.0  },\n    humi:    { sensor: 'humi', dir: 'high', detect: 60,   severe: 75,   ok: 55,  rise: 8.0,  fall: 11.5, noise: 0.8, cap: 100.0 },\n    co2:     { sensor: 'co2',  dir: 'high', detect: 1000, severe: 1300, ok: 900, rise: 250,  fall: 220,  noise: 20,  cap: 3000 }\n};\nconst AUTO_START_TICKS = 4;\nconst NORMAL_TARGET = { temp: 22.0, humi: 45.0, co2: 500, co2Occupied: 650 };\n\nconst noise = (amp) => (Math.random() - 0.5) * amp;\nconst isBeyond = (L, x, lim) => (L.dir === 'high' ? x >= lim : x <= lim);\nconst isRecovered = (L, x) => (L.dir === 'high' ? x <= L.ok : x >= L.ok);\n\n// ---------- 상태 ----------\nconst s = context.get('state') || msg.state;\n\n// 이상 센서: 이상 방향 변화 / 장비 가동 중에는 정상 방향 변화\nfunction stepAnomaly(st) {\n    if (!st.anomaly) return;\n    const L = SC[st.anomaly];\n    const k = (L.dir === 'high') ? 1 : -1;\n    if (st.equipOn) st[L.sensor] -= k * L.fall + noise(L.noise);\n    else            st[L.sensor] += k * L.rise + noise(L.noise);\n    st[L.sensor] = (L.dir === 'high')\n        ? Math.min(st[L.sensor], L.cap)\n        : Math.max(st[L.sensor], L.cap);\n}\n\n// 정상 센서: 목표값 주변 변동 (이상 센서 제외)\nfunction stepNormal(st) {\n    const anomSensor = st.anomaly ? SC[st.anomaly].sensor : null;\n    if (anomSensor !== 'temp') st.temp += (NORMAL_TARGET.temp - st.temp) * 0.1 + noise(0.3);\n    if (anomSensor !== 'humi') st.humi += (NORMAL_TARGET.humi - st.humi) * 0.1 + noise(1.0);\n    if (anomSensor !== 'co2') {\n        const target = st.occupied ? NORMAL_TARGET.co2Occupied : NORMAL_TARGET.co2;\n        st.co2 += (target - st.co2) * 0.1 + noise(20);\n    }\n}\n\n// 장비 가동 / 정상 복귀 판정\nfunction judgeScenario(st) {\n    if (!st.anomaly) return;\n    const L = SC[st.anomaly];\n    const v = st[L.sensor];\n    if (!st.equipOn) {\n        st.detectTicks = isBeyond(L, v, L.detect) ? st.detectTicks + 1 : 0;\n        if (isBeyond(L, v, L.severe) || st.detectTicks >= AUTO_START_TICKS) {\n            st.equipOn = true;\n        }\n    } else if (isRecovered(L, v)) {\n        st.anomaly = null;\n        st.equipOn = false;\n        st.detectTicks = 0;\n        st.recovered = true;\n    }\n}\n\n// 단계(stage) 계산\n\nfunction calcStage(st) {\n    if (!st.anomaly) return st.recovered ? 'RECOVERED' : 'NORMAL';\n    const L = SC[st.anomaly];\n    const v = st[L.sensor];\n    if (st.equipOn) return 'MITIGATING';\n    if (isBeyond(L, v, L.severe)) return 'SEVERE';\n    if (isBeyond(L, v, L.detect)) return 'DETECTED';\n    return 'NORMAL';   // 기준 도달 전에는 정상 표시 (ANOMALY 단계 제거)\n}\n\n// 조도: 외부 일사량 + 실내 조명\nfunction stepLux(st) {\n    const now = new Date();\n    const hour = now.getHours() + now.getMinutes() / 60;\n    let outdoor = 0;\n    if (hour > 6 && hour < 19) outdoor = Math.sin(Math.PI * (hour - 6) / 13) * 1000;\n    outdoor = Math.max(0, outdoor + noise(60));\n    const lightOn = st.occupied && outdoor < 400;\n    const indoorTarget = outdoor * 0.3 + (lightOn ? 350 : 0);\n    st.lux += (indoorTarget - st.lux) * 0.3 + noise(5);\n    st.lux = Math.min(Math.max(st.lux, 0), 1000);\n    return { outdoor, lightOn };\n}\n\nstepAnomaly(s);\nstepNormal(s);\njudgeScenario(s);\nconst stage = calcStage(s);\nconst envInfo = stepLux(s);\n\n\n// 직전 틱 판정을 표시용으로 사용 (수치 변화 이후 점등)\nconst cur = { anomaly: s.anomaly, equipOn: s.equipOn, stage: stage };\nconst shown = s.view || cur;\ns.view = cur;\n\ncontext.set('state', s);\n// 다음 노드로 전달\nmsg.state = s;\nmsg.shown = shown;\nmsg.envInfo = envInfo;\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 320,
+        "wires": [
+            [
+                "795bc7f9003e3407"
+            ]
+        ]
+    },
+    {
+        "id": "5a6c84951376151d",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "출력생성",
+        "func": "const s = msg.state;\nconst shown = msg.shown;\n\n// 1. 장비 가동 상태 (직전 틱 판정 기준)\nconst equip = {\n    chiller: shown.anomaly === 'temp' && shown.equipOn,\n    heater: shown.anomaly === 'tempLow' && shown.equipOn,\n    humidifier: false,\n    dehumidifier: shown.anomaly === 'humi' && shown.equipOn,\n    ahu: shown.anomaly === 'co2' && shown.equipOn\n};\n\n// 2. 장비/환기 상태 문자열\nlet hvac = \"OFF\";\nif (s.temp > 28) hvac = \"COOL_ON\";\nelse if (s.temp < 18) hvac = \"HEAT_ON\";\nif (equip.chiller) hvac = \"COOL_ON\";\nif (equip.heater) hvac = \"HEAT_ON\";\n\nlet humiStatus = \"OFF\";\nif (s.humi < 40) humiStatus = \"HUMIDIFIER_ON\";\nelse if (s.humi > 60) humiStatus = \"DEHUMIDIFIER_ON\";\nif (equip.dehumidifier) humiStatus = \"DEHUMIDIFIER_ON\";\n\nlet vent = \"OFF\";\nif (s.co2 > 1000) vent = \"VENT_HIGH\";\nelse if (s.co2 > 800) vent = \"VENT_LOW\";\nif (equip.ahu) vent = \"AHU_FRESH_AIR\";\n\n// 3. 전력 계산 (조명계산 결과 기준)\nlet power = Math.floor(Math.random() * (520 - 470) + 470);\nif (hvac !== \"OFF\") power += 200;\nif (equip.dehumidifier) power += 120;\nif (equip.ahu) power += 150;\nif (equip.heater) power += 150;\nif (msg.litCount > 0) power += 100;\n\n// 4. 통합 payload (인원·조명·장비·센서를 같은 timestamp로)\nconst payload = {\n    timestamp: Date.now(),\n    temperature: parseFloat(s.temp.toFixed(1)),\n    humidity: Math.round(s.humi),\n    co2: Math.floor(s.co2),\n    lux: msg.lux,\n    outdoor_lux: msg.outdoor,\n    lit_rooms: msg.litCount,\n    occupied: s.occupied,\n    power_consumption: power,\n    hvac_status: hvac,\n    humidity_status: humiStatus,\n    vent_status: vent,\n    light_status: msg.litCount > 0 ? \"LIGHT_ON\" : \"OFF\",\n    system_state: shown.equipOn ? \"RECOVERING\" : (shown.anomaly ? \"ANOMALY\" : \"NORMAL\"),\n    stage: shown.stage,\n    anomaly_type: shown.anomaly,\n    disable_rate_check: s.anomaly !== null\n};\n\n// 5. 방별 인원을 평면 필드로 추가 (occ_1F_A 등)\nfor (const key of Object.keys(msg.rooms)) {\n    payload[`occ_${key}`] = msg.rooms[key];\n}\n\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 260,
+        "wires": [
+            [
+                "acd1e7db4426a58e",
+                "dc49e0f535d2853b",
+                "498d8b0f85a6fa8d",
+                "8d721d829f81a5ca"
+            ]
+        ]
+    },
+    {
+        "id": "acd1e7db4426a58e",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "상태저장",
+        "func": "// 상태저장 노드\nconst p = msg.payload;\n\nflow.set('simStatus', {\n    timestamp: p.timestamp,\n    mode: 'REAL',\n    stage: p.stage,\n    anomaly_type: p.anomaly_type,\n    equipment: msg.equip,\n    temperature: p.temperature,\n    humidity: p.humidity,\n    co2: p.co2,\n    lux: p.lux,\n    lit_rooms: p.lit_rooms,\n    occupied: p.occupied,\n    occupancy: msg.rooms        // 실시간 방별 인원\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eef0ad4ad26739df",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Lux계산",
+        "func": "// ===== Lux계산: 실별 조도 → 건물 평균 =====\nconst LUX_OCCUPIED = 400;   // 재실 실 조도\nconst LUX_EMPTY = 0;     // 빈 실 조도\n\nconst rooms = msg.rooms;\nconst keys = Object.keys(rooms);\nconst totalRooms = keys.length;   // 40\n\nconst lightState = {};\nlet litCount = 0;\nlet sumLux = 0;\n\nfor (const key of keys) {\n    const occupied = rooms[key] > 0;   // 1명 이상이면 재실\n    lightState[key] = occupied;\n    if (occupied) litCount++;\n    sumLux += occupied ? LUX_OCCUPIED : LUX_EMPTY;\n}\n\n// 건물 평균 조도 = 전체 실 조도 합 ÷ 전체 실 수 (빈 실 0 포함)\nconst avgLux = totalRooms > 0 ? sumLux / totalRooms : 0;\n\nmsg.lightState = lightState;\nmsg.lux = Math.round(avgLux * 10) / 10;   // 소수 첫째 자리\nmsg.litCount = litCount;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 320,
+        "wires": [
+            [
+                "5a6c84951376151d",
+                "4e25c4b6fccf60dc"
+            ]
+        ]
+    },
+    {
+        "id": "8d721d829f81a5ca",
+        "type": "debug",
+        "z": "f08fa4dd96ae2cb6",
+        "d": true,
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4e25c4b6fccf60dc",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Light Simulate",
+        "func": "const sim = flow.get('simDay');\nif (sim && sim.active) {\n    sim.simMinute += sim.stepMinute;\n    sim.ticks++;\n    if (sim.simMinute >= sim.endMinute) sim.active = false;   // 21:00 도달 시 종료\n    flow.set('simDay', sim);\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 380,
+        "wires": [
+            [
+                "ab5c1d5afb6b3848"
+            ]
+        ]
+    },
+    {
+        "id": "ab5c1d5afb6b3848",
+        "type": "function",
+        "z": "f08fa4dd96ae2cb6",
+        "name": "Light Summary",
+        "func": "const BASELINE_LUX = 400;\nconst lux = msg.lux ?? 0;\nconst savingsPct = Number(((BASELINE_LUX - lux) / BASELINE_LUX * 100).toFixed(1));\n\nconst sim = flow.get('simDay');\nif (sim && sim.active) {\n    const hh = String(Math.floor(sim.simMinute / 60)).padStart(2, '0');\n    const mm = String(sim.simMinute % 60).padStart(2, '0');\n\n    // 진행률: 시작(07:00) ~ 종료(21:00) 대비 현재 가상 시각\n    const progress = (sim.simMinute - sim.startMinute) / (sim.endMinute - sim.startMinute) * 100;\n\n    flow.set('simView', {\n        mode: 'DEMO',\n        time: `${hh}:${mm}`,\n        people: msg.totalPeople ?? 0,\n        outdoor_lux: msg.outdoor ?? 0,\n        lux: lux,\n        savings_pct: savingsPct,\n        progress_pct: Math.min(100, Math.max(0, Math.round(progress)))\n    });\n}\n//node.warn('Summary: active=' + (flow.get('simDay') || {}).active + ' view=' + !!flow.get('simView'));\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b04bd035b3796556",
+        "type": "ui-switch",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "메인 전등 제어",
+        "label": "Light on/off",
+        "group": "0fb86845d3ab4c0b",
+        "order": 9,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "decouple": false,
+        "topic": "building/BUILDING_01/light_cmd",
+        "topicType": "str",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "label",
+        "onvalue": "ON",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "OFF",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 120,
+        "y": 1000,
+        "wires": [
+            [
+                "e35e0531acaf04de",
+                "33876901f3858901"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "e35e0531acaf04de",
+        "type": "ui-text",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "group": "0fb86845d3ab4c0b",
+        "order": 10,
+        "width": "1",
+        "height": "1",
+        "name": "전등 상태 표시",
+        "label": "현재 전등 상태: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": true,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 260,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "3911f9048872b255",
+        "type": "ui-chart",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "group": "0fb86845d3ab4c0b",
+        "name": "전력량",
+        "label": "Power Consumption",
+        "order": 11,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "시간",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "400",
+        "ymax": "800",
+        "bins": "",
+        "action": "replace",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "1",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "8",
+        "height": "4",
+        "className": "",
+        "interpolation": "linear",
+        "x": 850,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02c970653782268a",
+        "type": "mqtt out",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "AWS_iot_Publish",
+        "topic": "test",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1ab5f01d0dd5191",
+        "x": 950,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9e3f51b09b17bff1",
+        "type": "mqtt in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "AWS_iot_Subscribe",
+        "topic": "test",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "f1ab5f01d0dd5191",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 880,
+        "wires": [
+            [
+                "8cec38be06dda788",
+                "3fd90cc4b1461a3c"
+            ]
+        ]
+    },
+    {
+        "id": "33876901f3858901",
+        "type": "mqtt out",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "AWS_Publish_Light",
+        "topic": "building/BUILDING_01/light_cmd",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f1ab5f01d0dd5191",
+        "x": 270,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "8cec38be06dda788",
+        "type": "influxdb out",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "influxdb": "13821ed682a03952",
+        "name": "influxdb_save",
+        "measurement": "sensor_data",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "yknam",
+        "bucket": "node_red_bucket",
+        "x": 380,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "3fd90cc4b1461a3c",
+        "type": "influxdb in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "influxdb": "13821ed682a03952",
+        "name": "influxdb_read",
+        "query": "from(bucket: \"node_red_bucket\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"sensor_data\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\" or \n                       r[\"_field\"] == \"humidity\" or \n                       r[\"_field\"] == \"power_consumption\" or \n                       r[\"_field\"] == \"co2\" or \n                       r[\"_field\"] == \"lux\" )\n  |> aggregateWindow(every: 5s, fn: mean, createEmpty: false)\n  |> sort(columns: [\"_time\"], desc: false) \n  // [보완] 시간 오름차순 정렬을 확정하여 루프 끝에 '최신값'이 오도록 보장",
+        "rawOutput": false,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "yknam",
+        "x": 380,
+        "y": 940,
+        "wires": [
+            [
+                "077ff8e33405ada8"
+            ]
+        ]
+    },
+    {
+        "id": "077ff8e33405ada8",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "dashboard용 data",
+        "func": "const chartPoints = [];\nconst latestGaugeData = {};\n\n// 1. InfluxDB 데이터 안전 검증 및 루프 순회\nif (Array.isArray(msg.payload)) {\n    msg.payload.forEach(item => {\n        const fieldName = item._field;\n        let value = item._value;\n        if (value === null || value === undefined) return;\n\n        // 타임스탬프 밀리초 파싱 보장\n        let timeMillis = 0;\n        if (typeof item._time === 'number') {\n            timeMillis = item._time;\n        } else if (typeof item._time === 'string') {\n            timeMillis = new Date(item._time).getTime();\n        } else if (item._time instanceof Date) {\n            timeMillis = item._time.getTime();\n        }\n\n        if (!timeMillis || isNaN(timeMillis)) {\n            timeMillis = Date.now();\n        }\n\n        // 2. 전력 소비량 차트 데이터 적재 (차트 노드 설정인 category: topic에 대응)\n        if (fieldName === \"power_consumption\") {\n            chartPoints.push({\n                x: timeMillis,             // xAxisProperty: \"x\"와 매칭\n                y: Number(value.toFixed(1)) // yAxisProperty: \"y\"와 매칭\n            });\n        } else {\n            // 3. 환경 센서 게이지 데이터 적재\n            let roundedValue;\n            if (fieldName === \"temperature\") {\n                roundedValue = Number(value.toFixed(1)); \n            } else if (fieldName === \"humidity\" || fieldName === \"co2\" || fieldName === \"lux\") {\n                roundedValue = Math.round(value); \n            } else {\n                roundedValue = value;\n            }\n\n            latestGaugeData[fieldName] = roundedValue;\n        }\n    });\n}\n\n// --- 1번 출력 (위쪽 포트): Dashboard 2.0 ui-chart(category: topic) 전용 포맷 ---\n// 차트 노드 설정이 \"category\": \"topic\" 이므로, msg.topic에 시리즈명을 넣고 payload에 순수 [{x, y}] 배열을 보냅니다.\nconst msgLine = {\n    topic: \"Power Consumption\", // 차트 범례에 표시될 이름\n    action: \"replace\",\n    payload: chartPoints        // 순수 [{x: 타임스탬프, y: 값}] 구조의 플랫 배열\n};\n\n// --- 2번 출력 (아래쪽 포트): 게이지 노드용 스트림 분기 패킷 ---\nconst msgGauges = Object.keys(latestGaugeData).map(key => {\n    return {\n        topic: key,\n        payload: latestGaugeData[key]\n    };\n});\n\nreturn [msgLine, msgGauges];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 1000,
+        "wires": [
+            [
+                "49f13b98d7751536"
+            ],
+            [
+                "d1540eac113c0e9e"
+            ]
+        ]
+    },
+    {
+        "id": "d1540eac113c0e9e",
+        "type": "switch",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "humidity",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "lux",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "co2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 690,
+        "y": 1100,
+        "wires": [
+            [
+                "28b018226240166f"
+            ],
+            [
+                "21bd79171c6e8884"
+            ],
+            [
+                "2e15423397b1bb07"
+            ],
+            [
+                "aae5461c3e160976"
+            ]
+        ]
+    },
+    {
+        "id": "586b6ac9b7bfe8dc",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Postgres 삽입문",
+        "func": "const p = msg.payload;\n\n// 유효성 검사: 객체가 아니거나 timestamp가 없으면 저장하지 않음\nif (!p || typeof p !== 'object' || !p.timestamp) return null;\n\nmsg.topic = `INSERT INTO sensor_data\n    (timestamp, temperature, humidity, co2, lux, occupied, power_consumption, quality_score)\n    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;\n\nmsg.payload = [\n    new Date(Number(p.timestamp)).toISOString(),\n    p.temperature ?? null,\n    p.humidity ?? null,\n    p.co2 ?? null,\n    p.lux ?? null,\n    p.occupied === true || p.occupied === 'true',\n    p.power_consumption ?? null,\n    p.quality_score ?? null\n];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1040,
+        "y": 320,
+        "wires": [
+            [
+                "302067eb2bf08f30"
+            ]
+        ]
+    },
+    {
+        "id": "302067eb2bf08f30",
+        "type": "postgresql",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Postgres실행",
+        "query": "",
+        "postgreSQLConfig": "postgres-config-fixed",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 1230,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "470c4e6e0c4d9da9",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "이상 데이터 판별",
+        "func": "// ===== 기준값 (생성기와 동일하게 유지) =====\nconst LIMIT = {\n    TEMP_LOW: 18,         // 이하 → 비정상 (HEAT_ON 대상)\n    TEMP_HIGH: 27,        // 이상 → 비정상 (COOL_ON 대상)\n    HUMI_LOW: 40,         // 미만 → 비정상\n    HUMI_HIGH: 60,        // 초과 → 비정상\n    CO2_WARN: 800,        // 초과 → 주의\n    CO2_ABNORMAL: 1000    // 초과 → 비정상\n};\nconst RATE_LIMIT = 4.5;   // 온도 변화율 허용치 (5초 기준)\n\n// ===== 1건 평가 =====\nfunction evaluate(p) {\n    const issues = [];\n    const skipRate = p.disable_rate_check ?? false;\n\n    // 온도\n    const lastTemp = context.get('lastTemp') ?? p.temperature;\n    context.set('lastTemp', p.temperature);\n\n    if (p.temperature <= LIMIT.TEMP_LOW) {\n        issues.push({ label: 'Temperature low (HEAT_ON)', penalty: 35 });\n    } else if (p.temperature >= LIMIT.TEMP_HIGH) {\n        issues.push({ label: 'Temperature high (COOL_ON)', penalty: 35 });\n    } else if (!skipRate && Math.abs(p.temperature - lastTemp) > RATE_LIMIT) {\n        issues.push({ label: 'Abnormal temp change', penalty: 35 });\n    }\n\n    // 습도\n    if (p.humidity < LIMIT.HUMI_LOW || p.humidity > LIMIT.HUMI_HIGH) {\n        issues.push({ label: 'Humidity out of range (40~60)', penalty: 35 });\n    }\n\n    // CO2 (800 초과 주의, 1000 초과 비정상)\n    if (p.co2 > LIMIT.CO2_ABNORMAL) {\n        issues.push({ label: 'CO2 abnormal (>1000)', penalty: 35 });\n    } else if (p.co2 > LIMIT.CO2_WARN) {\n        issues.push({ label: 'CO2 warning (>800)', penalty: 15 });\n    }\n\n    const totalPenalty = issues.reduce((sum, i) => sum + i.penalty, 0);\n    return {\n        score: Math.max(0, 100 - totalPenalty),\n        issues: issues.map(i => i.label)\n    };\n}\n\n// ===== 평가 후 비정상만 insert 메시지로 변환 =====\nconst records = Array.isArray(msg.payload) ? msg.payload : [msg.payload];\nconst insertMsgs = [];\n\nrecords.forEach(p => {\n    if (!p || typeof p !== 'object') return;\n\n    const r = evaluate(p);\n    if (r.score >= 100) return;   // 정상 → 제외\n\n    insertMsgs.push({\n        topic: `INSERT INTO abnormal_data\n                (event_time, temperature, humidity, co2, power_consumption,\n                 quality_score, issues, system_state, anomaly_type)\n                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,\n        payload: [\n            new Date(p.timestamp).toISOString(),\n            p.temperature,\n            p.humidity,\n            p.co2,\n            p.power_consumption,\n            r.score,\n            r.issues.join(', '),\n            p.system_state ?? null,\n            p.anomaly_type ?? null\n        ]\n    });\n});\n\n// 비정상이 없으면 아무것도 보내지 않음\nif (insertMsgs.length === 0) return null;\nreturn insertMsgs;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 320,
+        "wires": [
+            [
+                "586b6ac9b7bfe8dc"
+            ]
+        ]
+    },
+    {
+        "id": "eecbf47ad651eb31",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "가상데이터생성",
+        "func": "// ===== 0. 설정 =====\n// dir: 'high' = 값이 detect 이상이면 이상, 'low' = 값이 detect 이하이면 이상\nconst LIMIT = {\n    temp:    { sensor: 'temp', dir: 'high', detect: 28,   severe: 30,   ok: 24 },  // 고온 (28 이상 이상, 24 이하 정상 복귀)\n    tempLow: { sensor: 'temp', dir: 'low',  detect: 18,   severe: 15,   ok: 20 },  // 저온 (18 이하 이상, 20 이상 정상 복귀)\n    humi:    { sensor: 'humi', dir: 'high', detect: 60,   severe: 75,   ok: 55 },\n    co2:     { sensor: 'co2',  dir: 'high', detect: 1000, severe: 1300, ok: 900 }\n};\nconst AUTO_START_TICKS = 2;   // 감지 후 10초(2틱) 안에 개선 없으면 자동 가동\n\n// 틱(5초)당 변화량: 이상 방향으로는 rise, 정상 방향으로는 장비 가동 후 fall\nconst RATE = {\n    temp:    { rise: 3.0,  fall: 3.0 },\n    tempLow: { rise: 3.0,  fall: 3.0 },\n    humi:    { rise: 8.0,  fall: 11.5 },\n    co2:     { rise: 250,  fall: 220 }\n};\nconst NOISE = { temp: 0.4, humi: 0.8, co2: 20 };          // 이상 센서 노이즈 진폭\nconst CAP   = { temp: 45.0, tempLow: 5.0, humi: 100.0, co2: 3000 };  // 시뮬레이션 한계값\n\n// ===== 1. 상태 로드 =====\nlet s = context.get('state') || {\n    anomaly: null, equipOn: false, detectTicks: 0, recovered: false,\n    temp: 22.0, humi: 45.0, co2: 550, lux: 350, occupied: false,\n    view: null   // 직전 틱의 판정 결과 (램프/장비 표시용)\n};\n\n// ===== 2. 명령 처리 (버튼/HTTP 공통) =====\nfunction extractCommand(m) {\n    let raw;\n    if (m.req && m.req.query && m.req.query.action !== undefined) {\n        raw = m.req.query.action;          // 버튼 요청: 쿼리 파라미터 우선\n    } else if (typeof m.payload === 'string') {\n        raw = m.payload;                   // 그 외 문자열 명령(테스트용)\n    }\n    if (raw === undefined) return 'TICK';\n    return String(raw).trim().toUpperCase();\n}\n\nconst cmd = extractCommand(msg);\nconst ANOMALY_CMD = {\n    ANOMALY_TEMP: 'temp',           // 고온\n    ANOMALY_TEMP_LOW: 'tempLow',    // 저온\n    ANOMALY_HUMI: 'humi',\n    ANOMALY_CO2: 'co2'\n};\n\nif (ANOMALY_CMD[cmd] !== undefined) {\n    if (s.anomaly !== ANOMALY_CMD[cmd]) {\n        s.anomaly = ANOMALY_CMD[cmd];\n        s.equipOn = false;\n        s.detectTicks = 0;\n        s.recovered = false;        // 새 이상이면 정상화 표시 해제\n    }\n} else if (cmd === 'RESET') {\n    s.anomaly = null;\n    s.equipOn = false;\n    s.detectTicks = 0;\n    s.recovered = false;            // 초기화 시 정상 운전으로\n} else if (cmd === 'OCCUPY_ON') {\n    s.occupied = true;\n} else if (cmd === 'OCCUPY_OFF') {\n    s.occupied = false;\n} else if (cmd !== 'TICK') {\n    node.warn(`알 수 없는 명령: [${cmd}]`);\n}\n\n// ===== 3. 값 계산 =====\nconst noise = (amp) => (Math.random() - 0.5) * amp;\n\n// 이상 여부 판단 helper\nconst isBeyond = (L, x, lim) => (L.dir === 'high' ? x >= lim : x <= lim);   // 한계 이상/이하 도달\nconst isRecovered = (L, x) => (L.dir === 'high' ? x <= L.ok : x >= L.ok);   // 정상 범위 복귀\nconst isAnomSensor = (sensor) => !!s.anomaly && LIMIT[s.anomaly].sensor === sensor;\n\n// 3-1. 이상 센서: 이상 방향으로 매 틱 변화, 장비 가동 중에는 정상 방향으로 변화\nif (s.anomaly) {\n    const A = s.anomaly;\n    const L = LIMIT[A];\n    const key = L.sensor;\n    const k = (L.dir === 'high') ? 1 : -1;   // 이상 방향 부호\n    const r = RATE[A];\n\n    if (s.equipOn) s[key] -= k * r.fall + noise(NOISE[key]);\n    else           s[key] += k * r.rise + noise(NOISE[key]);\n\n    // 시뮬레이션 한계값 적용\n    s[key] = (L.dir === 'high') ? Math.min(s[key], CAP[A]) : Math.max(s[key], CAP[A]);\n}\n\n// 3-2. 정상 센서: 목표값 주변 변동 (이상 센서 제외)\nconst target = { temp: 22.0, humi: 45.0, co2: s.occupied ? 650 : 500 };\nif (!isAnomSensor('temp')) s.temp += (target.temp - s.temp) * 0.1 + noise(0.3);\nif (!isAnomSensor('humi')) s.humi += (target.humi - s.humi) * 0.1 + noise(1.0);\nif (!isAnomSensor('co2'))  s.co2  += (target.co2  - s.co2)  * 0.1 + noise(20);\n\n// 3-3. 시나리오 자동 판단\nif (s.anomaly) {\n    const L = LIMIT[s.anomaly];\n    const v = s[L.sensor];\n\n    if (!s.equipOn) {\n        s.detectTicks = isBeyond(L, v, L.detect) ? s.detectTicks + 1 : 0;\n        // 심각 도달 즉시, 또는 감지 상태가 2틱(10초) 유지되면 자동 가동\n        if (isBeyond(L, v, L.severe) || s.detectTicks >= AUTO_START_TICKS) {\n            s.equipOn = true;\n        }\n    } else if (isRecovered(L, v)) {\n        // 정상 범위 복귀 → 장비 자동 정지, 정상화 표시 유지\n        s.anomaly = null;\n        s.equipOn = false;\n        s.detectTicks = 0;\n        s.recovered = true;\n    }\n}\n\n// 3-4. 단계(stage) 계산\nlet stage;\nif (s.anomaly) {\n    const L = LIMIT[s.anomaly];\n    const v = s[L.sensor];\n    if (s.equipOn) stage = 'MITIGATING';\n    else if (isBeyond(L, v, L.severe)) stage = 'SEVERE';\n    else if (isBeyond(L, v, L.detect)) stage = 'DETECTED';\n    else stage = 'ANOMALY';\n} else {\n    stage = s.recovered ? 'RECOVERED' : 'NORMAL';\n}\n\n// 3-5. 조도: 외부 일사량 + 실내 조명\nconst now = new Date();\nconst hour = now.getHours() + now.getMinutes() / 60;\nlet outdoor = 0;\nif (hour > 6 && hour < 19) outdoor = Math.sin(Math.PI * (hour - 6) / 13) * 1000;\noutdoor = Math.max(0, outdoor + noise(60));\n\nconst lightOn = s.occupied && outdoor < 400;\nconst indoorTarget = outdoor * 0.3 + (lightOn ? 350 : 0);\ns.lux += (indoorTarget - s.lux) * 0.3 + noise(5);\ns.lux = Math.min(Math.max(s.lux, 0), 1000);\n\n// 3-6. 판정 결과 보관: 램프/장비는 직전 틱 판정을 사용 (수치 변화 이후에 점등)\nconst cur = { anomaly: s.anomaly, equipOn: s.equipOn, stage: stage };\nconst shown = s.view || cur;\ns.view = cur;\n\ncontext.set('state', s);\n\n// ===== 4. 장비 및 파생 상태 =====\nconst temp = s.temp, humi = s.humi, co2 = s.co2, lux = s.lux;\nconst occupied = s.occupied;\n\nconst equip = {\n    chiller: shown.anomaly === 'temp' && shown.equipOn,\n    heater: shown.anomaly === 'tempLow' && shown.equipOn,\n    humidifier: false,\n    dehumidifier: shown.anomaly === 'humi' && shown.equipOn,\n    ahu: shown.anomaly === 'co2' && shown.equipOn\n};\n\nlet hvac_status = \"OFF\";\nif (temp > 28) hvac_status = \"COOL_ON\";\nelse if (temp < 18) hvac_status = \"HEAT_ON\";\nif (equip.chiller) hvac_status = \"COOL_ON\";\nif (equip.heater) hvac_status = \"HEAT_ON\";\n\nlet humi_status = \"OFF\";\nif (humi < 40) humi_status = \"HUMIDIFIER_ON\";\nelse if (humi > 60) humi_status = \"DEHUMIDIFIER_ON\";\nif (equip.dehumidifier) humi_status = \"DEHUMIDIFIER_ON\";\n\nlet vent_status = \"OFF\";\nif (co2 > 1000) vent_status = \"VENT_HIGH\";\nelse if (co2 > 800) vent_status = \"VENT_LOW\";\nif (equip.ahu) vent_status = \"AHU_FRESH_AIR\";\n\nconst light_status = lightOn ? \"LIGHT_ON\" : \"OFF\";\n\nlet basePower = Math.floor(Math.random() * (520 - 470) + 470);\nif (hvac_status !== \"OFF\") basePower += 200;\nif (equip.dehumidifier) basePower += 120;\nif (equip.ahu) basePower += 150;\nif (equip.heater) basePower += 150;\nif (lightOn) basePower += 100;\n\n// 기존 장치 상태 노드 호환을 위해 system_state 유지\nconst system_state = shown.equipOn ? \"RECOVERING\" : (shown.anomaly ? \"ANOMALY\" : \"NORMAL\");\n\n// ===== 5. 출력 =====\nconst payload = {\n    timestamp: Date.now(),\n    temperature: parseFloat(temp.toFixed(1)),\n    humidity: Math.round(humi),\n    co2: Math.floor(co2),\n    lux: Math.floor(lux),\n    outdoor_lux: Math.floor(outdoor),\n    occupied: occupied,\n    power_consumption: basePower,\n    hvac_status: hvac_status,\n    humidity_status: humi_status,\n    vent_status: vent_status,\n    light_status: light_status,\n    system_state: system_state,\n    stage: shown.stage,              // 직전 틱 판정\n    anomaly_type: shown.anomaly,     // 직전 틱 판정 (temp / tempLow / humi / co2)\n    disable_rate_check: s.anomaly !== null\n};\n\n// Grafana 상태 화면용 (flow에만 저장)\nflow.set('simStatus', {\n    timestamp: payload.timestamp,\n    stage: shown.stage,\n    anomaly_type: shown.anomaly,\n    equipment: equip,\n    temperature: payload.temperature,\n    humidity: payload.humidity,\n    co2: payload.co2,\n    lux: payload.lux,\n    occupied: occupied\n});\n\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "49f13b98d7751536",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "차트UI",
+        "func": "// 기존 데이터(msg.payload)는 온전히 유지하면서 eCharts 축 제어 옵션을 주입합니다.\nmsg.ui_update = {\n    chartOptions: {\n        xAxis: [\n            {\n                axisLabel: {\n                    interval: 0,        // 0으로 지정하면 차트가 임의로 라벨을 생략하지 않고 모두 노출합니다.\n                    hideOverlap: false  // 좁은 공간에서 글자가 약간 겹치더라도 숨기지 않고 강제 표시합니다.\n                }\n            }\n        ]\n    }\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 1020,
+        "wires": [
+            [
+                "3911f9048872b255"
+            ]
+        ]
+    },
+    {
+        "id": "28b018226240166f",
+        "type": "ui-gauge",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "humidity",
+        "group": "0fb86845d3ab4c0b",
+        "order": 14,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Humidity",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "건조",
+                "textType": "label"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "정상",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ffc800",
+                "text": "주의",
+                "textType": "label"
+            },
+            {
+                "from": "90",
+                "color": "#ea5353",
+                "text": "위험",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": 100,
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 860,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21bd79171c6e8884",
+        "type": "ui-gauge",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Temperature",
+        "group": "0fb86845d3ab4c0b",
+        "order": 15,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Temperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "저온",
+                "textType": "label"
+            },
+            {
+                "from": "15",
+                "color": "#5cd65c",
+                "text": "정상",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353",
+                "text": "고온",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "50",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 870,
+        "y": 1120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e15423397b1bb07",
+        "type": "ui-gauge",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "lux",
+        "group": "0fb86845d3ab4c0b",
+        "order": 12,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Lux",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "lx",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "어두움",
+                "textType": "label"
+            },
+            {
+                "from": "300",
+                "color": "#5cd65c",
+                "text": "적정",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "1000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 850,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aae5461c3e160976",
+        "type": "ui-gauge",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "co2",
+        "group": "0fb86845d3ab4c0b",
+        "order": 13,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "CO2",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "ppm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "좋음",
+                "textType": "label"
+            },
+            {
+                "from": "800",
+                "color": "#ffc800",
+                "text": "일반",
+                "textType": "label"
+            },
+            {
+                "from": "1000",
+                "color": "#ea5353",
+                "text": "나쁨",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "3000",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 850,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c86573b3a8d0e98",
+        "type": "ui-button-group",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "",
+        "group": "0fb86845d3ab4c0b",
+        "order": 16,
+        "width": 6,
+        "height": 1,
+        "label": "정상화",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": true,
+        "passthru": true,
+        "options": [
+            {
+                "label": "AHU가동",
+                "icon": "",
+                "value": "AHU_FRESH_AIR",
+                "valueType": "str",
+                "color": "#009933"
+            },
+            {
+                "label": "냉난방",
+                "icon": "",
+                "value": "HVAC_COOL",
+                "valueType": "str",
+                "color": "#999999"
+            },
+            {
+                "label": "제습",
+                "icon": "",
+                "value": "DEHUMID",
+                "valueType": "str",
+                "color": "#ff6666"
+            },
+            {
+                "label": "퇴실",
+                "icon": "",
+                "value": "OCCUPY_OFF",
+                "valueType": "str",
+                "color": "#009999"
+            },
+            {
+                "label": ".초기화",
+                "icon": "",
+                "value": "RESET",
+                "valueType": "str",
+                "color": "#cccc00"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fff12513d54042c0",
+        "type": "ui-template",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "group": "0fb86845d3ab4c0b",
+        "page": "",
+        "ui": "",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n  .dev-row { display:flex; gap:12px; padding:8px; }\n  .dev { flex:1; border:2px solid #cfd8dc; border-radius:12px; padding:12px 8px;\n         text-align:center; background:#fafafa; transition: all .4s ease; }\n  .dev .label { margin-top:6px; font-weight:600; color:#37474f; }\n  .dev .sub { font-size:11px; color:#78909c; margin-top:2px; }\n  .dev svg { display:inline-block; stroke:#546e7a; transform-box: fill-box; transform-origin: center; }\n\n  /* 냉방기 ON */\n  .dev.cool.on { border-color:#1e88e5; background:#e3f2fd; box-shadow:0 0 14px rgba(30,136,229,.5); }\n  .dev.cool.on svg { stroke:#1565c0; }\n  .anim-spin { animation: spin 1.2s linear infinite; }\n  @keyframes spin { to { transform: rotate(360deg); } }\n\n  /* 제습기 ON */\n  .dev.dehum.on { border-color:#00897b; background:#e0f2f1; box-shadow:0 0 14px rgba(0,137,123,.5); }\n  .dev.dehum.on svg { stroke:#00695c; }\n  .anim-pulse { animation: pulse 1.2s ease-in-out infinite; }\n  @keyframes pulse { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.15); opacity:.6; } }\n\n  /* 조명 소등 중 */\n  .dev.light.fading { border-color:#f9a825; background:#fff8e1; box-shadow:0 0 14px rgba(249,168,37,.5); }\n  .dev.light.fading svg { stroke:#e65100; }\n  .anim-fade { animation: fade 1.6s ease-in-out infinite; }\n  @keyframes fade { 0%,100% { opacity:1; } 50% { opacity:.25; } }\n</style>\n\n<div class=\"dev-row\">\n\n  <!-- 냉방기 -->\n  <div class=\"dev cool\" ng-class=\"{on: msg.payload.cooling}\">\n    <svg ng-class=\"{'anim-spin': msg.payload.cooling}\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\"\n         fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\">\n      <path d=\"M12 2v20 M3.3 7l17.4 10 M3.3 17l17.4-10\"/>\n      <path d=\"M9 4l3 2 3-2 M9 20l3-2 3 2\"/>\n    </svg>\n    <div class=\"label\">냉방기</div>\n    <div class=\"sub\">{{ msg.payload.cooling ? '가동 중' : '대기' }}</div>\n  </div>\n\n  <!-- 제습기 -->\n  <div class=\"dev dehum\" ng-class=\"{on: msg.payload.dehumid}\">\n    <svg ng-class=\"{'anim-pulse': msg.payload.dehumid}\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\"\n         fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n      <path d=\"M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2z\"/>\n      <path d=\"M12 10v6 M9.5 13.5l2.5 2.5 2.5-2.5\"/>\n    </svg>\n    <div class=\"label\">제습기</div>\n    <div class=\"sub\">{{ msg.payload.dehumid ? '가동 중' : '대기' }}</div>\n  </div>\n\n  <!-- 조명 (BULB) -->\n  <div class=\"dev light\" ng-class=\"{fading: msg.payload.lightFading}\">\n    <svg ng-class=\"{'anim-fade': msg.payload.lightFading}\" width=\"48\" height=\"48\" viewBox=\"0 0 24 24\"\n         fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n      <path d=\"M12 3a7 7 0 0 0-4 12.7V17h8v-1.3A7 7 0 0 0 12 3z\"/>\n      <path d=\"M9 20h6 M10 22.5h4\"/>\n    </svg>\n    <div class=\"label\">조명</div>\n    <div class=\"sub\">{{ msg.payload.lightFading ? '소등 중' : msg.payload.lux + ' lx' }}</div>\n  </div>\n\n</div>",
+        "storeOutMessages": true,
+        "passthru": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1100,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71a351a2cf46836b",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "system.state변경",
+        "func": "const p = msg.payload;\nif (!p || typeof p !== 'object') return null;\n\nmsg.payload = {\n    // 냉방기: 온도 이상 조치 중일 때 동작\n    cooling: p.system_state === 'RECOVERING' && p.anomaly_type === 'temp',\n    // 제습기: 습도 이상 조치 중일 때 동작\n    dehumid: p.system_state === 'RECOVERING' && p.anomaly_type === 'humi',\n    // 조명: 인원 0명 상태에서 조도가 아직 떨어지는 중이면 소등 애니메이션\n    lightFading: !p.occupied && p.lux > 30,\n    lux: Math.floor(p.lux),\n    state: p.system_state\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 500,
+        "wires": [
+            [
+                "fff12513d54042c0"
+            ]
+        ]
+    },
+    {
+        "id": "4ded7b38a5ebf381",
+        "type": "http in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "trigger",
+        "url": "/grafana-trigger",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "36eb8d7185515958"
+            ]
+        ]
+    },
+    {
+        "id": "883e801f5dc35ab7",
+        "type": "http response",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 640,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "ffbd2c043f98d196",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "OK",
+        "func": "msg.statusCode = 200;\nmsg.headers = {\n    'Access-Control-Allow-Origin': 'http://localhost:3000'\n};\nmsg.payload = 'OK';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "883e801f5dc35ab7",
+                "9876b967aff22922"
+            ]
+        ]
+    },
+    {
+        "id": "1f3f6bae61532819",
+        "type": "http in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "status",
+        "url": "/grafana-status",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 540,
+        "wires": [
+            [
+                "03d6dbc136f1bd89"
+            ]
+        ]
+    },
+    {
+        "id": "03d6dbc136f1bd89",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "status return",
+        "func": "const SECRET = 'demo-token-change-me';\nif (msg.req.query.token !== SECRET) {\n    msg.statusCode = 403;\n    msg.payload = 'Forbidden';\n    return msg;\n}\nmsg.headers = {\n    'Content-Type': 'application/json',\n    'Access-Control-Allow-Origin': '*'\n};\nmsg.payload = flow.get('simStatus') || { stage: 'NORMAL', equipment: {} };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 540,
+        "wires": [
+            [
+                "883e801f5dc35ab7"
+            ]
+        ]
+    },
+    {
+        "id": "6c99891a01b2cfe4",
+        "type": "http in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "panel",
+        "url": "/grafana-panel",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 740,
+        "wires": [
+            [
+                "5809b2deb3185fac"
+            ]
+        ]
+    },
+    {
+        "id": "1d7c89f694813df7",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Header",
+        "func": "msg.headers = { 'Content-Type': 'text/html; charset=utf-8' };\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 740,
+        "wires": [
+            [
+                "883e801f5dc35ab7"
+            ]
+        ]
+    },
+    {
+        "id": "36eb8d7185515958",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "Token_Chk",
+        "func": "const SECRET = 'demo-token-change-me';\n\nif (msg.req.query.token !== SECRET) {\n    return [msg, null];   // 출력1: 실패\n}\nreturn [null, msg];       // 출력2: 통과",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "2ea6b4ec377a26eb"
+            ],
+            [
+                "ffbd2c043f98d196"
+            ]
+        ]
+    },
+    {
+        "id": "2ea6b4ec377a26eb",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "403",
+        "func": "msg.statusCode = 403;\nmsg.headers = { 'Access-Control-Allow-Origin': 'http://localhost:3000' };\nmsg.payload = 'Forbidden';\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "883e801f5dc35ab7"
+            ]
+        ]
+    },
+    {
+        "id": "5809b2deb3185fac",
+        "type": "template",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "iframe",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "text",
+        "syntax": "plain",
+        "template": "<div id=\"root\">\n  <!-- 접힌 상태: 가로 전체를 쓰는 요약 -->\n  <div id=\"collapsed\" class=\"collapsed show\">\n    <button class=\"open-btn\" onclick=\"toggleOpen(true)\">Simulate</button>\n    <div class=\"summary\">\n      <div class=\"lamps\">\n        <div class=\"lampbox\" data-lamp=\"normal\" style=\"--c:#4caf50\"><div class=\"lamp\"></div><span>정상</span></div>\n        <div class=\"lampbox\" data-lamp=\"alert\" style=\"--c:#f44336\"><div class=\"lamp\"></div><span>이상</span></div>\n        <div class=\"lampbox\" data-lamp=\"run\" style=\"--c:#ff9800\"><div class=\"siren\">🚨</div><span>장비작동</span></div>\n      </div>\n      <div class=\"msgText msg\">데이터 대기 중...</div>\n    </div>\n  </div>\n\n  <!-- 펼친 상태: 전체 패널 -->\n  <div class=\"wrap\" id=\"wrap\">\n    <div class=\"panel left\">\n      <div class=\"ptitle\">\n        <span>Simulate</span>\n        <button class=\"close-btn\" onclick=\"toggleOpen(false)\">끄기</button>\n      </div>\n      <div class=\"btns\">\n        <button class=\"btn\" onclick=\"send('ANOMALY_TEMP',this)\">Hot</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_TEMP_LOW',this)\">Cold</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_HUMI',this)\">Humid</button>\n        <button class=\"btn\" onclick=\"send('ANOMALY_CO2',this)\">CO2</button>\n        <button class=\"btn\" onclick=\"send('OCCUPY_OFF',this)\">퇴실</button>\n        <button class=\"btn\" onclick=\"send('RESET',this)\">Reset</button>\n      </div>\n    </div>\n\n    <div class=\"panel mid\">\n      <div class=\"ptitle\">Status</div>\n      <div class=\"status-grid\">\n        <div class=\"lamps\">\n          <div class=\"lampbox\" data-lamp=\"normal\" style=\"--c:#4caf50\"><div class=\"lamp\"></div><span>정상</span></div>\n          <div class=\"lampbox\" data-lamp=\"alert\" style=\"--c:#f44336\"><div class=\"lamp\"></div><span>이상</span></div>\n          <div class=\"lampbox\" data-lamp=\"run\" style=\"--c:#ff9800\"><div class=\"siren\">🚨</div><span>장비작동</span></div>\n        </div>\n        <div class=\"msgText msg\">데이터 대기 중...</div>\n      </div>\n    </div>\n\n    <div class=\"panel right\">\n      <div class=\"ptitle\">Equipment</div>\n      <div class=\"devs\">\n        <div class=\"dev\" id=\"d-chiller\"><span class=\"ico\">❄️</span><span class=\"nm\">Chiller</span></div>\n        <div class=\"dev\" id=\"d-heater\"><span class=\"ico\">🔥</span><span class=\"nm\">Heater</span></div>\n        <div class=\"dev\" id=\"d-humidifier\"><span class=\"ico\">💧</span><span class=\"nm\">Humidifier</span></div>\n        <div class=\"dev\" id=\"d-dehumidifier\"><span class=\"ico\">🌫️</span><span class=\"nm\">Dehumidifier</span></div>\n        <div class=\"dev\" id=\"d-ahu\"><span class=\"ico\">🌬️</span><span class=\"nm\">AHU</span></div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  html, body { margin:0 !important; padding:0 !important; background:#181b1f !important; color-scheme:dark; height:100%; overflow:hidden; }\n\n  /* iframe 높이(75vh)를 그대로 채움 */\n  #root { width:100%; height:75vh; box-sizing:border-box; padding:6px; background:#181b1f; color:#e0e0e0;\n          font-family:sans-serif; font-size:16px; display:flex; }\n\n  /* 접힌 상태 */\n  .collapsed { display:none; width:100%; height:100%; box-sizing:border-box; gap:10px; padding:6px 10px;\n               background:#22252b; border-radius:6px; align-items:center; }\n  .collapsed.show { display:flex; }\n\n  .open-btn { flex:0 0 100px; height:100%; border:none; color:#fff; background:#1e88e5; font-weight:bold;\n              font-size:16px; border-radius:6px; cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,.3); transition:all .2s; }\n  .open-btn:hover { filter:brightness(1.2); }\n  .open-btn:active { transform:translateY(1px); }\n\n  .summary { flex:1; min-width:0; height:100%; display:flex; flex-direction:column; justify-content:center; gap:8px; }\n\n  /* 펼친 상태 */\n  .wrap { display:none; width:100%; height:100%; gap:8px; padding:0; background:#181b1f; box-sizing:border-box; }\n  .wrap.open { display:flex; }\n\n  .panel { flex:1 1 0; min-width:0; height:100%; background:#22252b; border-radius:6px; padding:8px 10px;\n           box-sizing:border-box; display:flex; flex-direction:column; gap:8px; }\n  .left  { flex-grow:1.1; }\n  .mid   { flex-grow:1.1; }\n  .right { flex-grow:1.4; }\n\n  .ptitle { font-size:14px; font-weight:bold; color:#90a4ae; border-left:3px solid #546e7a; padding-left:6px;\n            line-height:18px; display:flex; justify-content:space-between; align-items:center; }\n  .close-btn { border:none; background:#546e7a; color:#fff; font-size:13px; font-weight:bold;\n               padding:2px 10px; border-radius:4px; cursor:pointer; }\n  .close-btn:hover { filter:brightness(1.2); }\n\n  /* Status: 2행 (램프 / 메시지) */\n  .status-grid { flex:1; min-height:0; display:grid; grid-template-rows:1fr 1fr; gap:8px; align-items:center; }\n\n  /* 시뮬레이션 버튼: 2행 3열 */\n  .btns { flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); gap:8px; }\n  .btn { border:none; color:#fff; background:#1e88e5; font-weight:bold; font-size:16px;\n         border-radius:5px; cursor:pointer; box-shadow:0 2px 4px rgba(0,0,0,.3); transition:all .2s;\n         display:flex; align-items:center; justify-content:center; padding:0; }\n  .btn:hover { filter:brightness(1.2); }\n  .btn:active { transform:translateY(1px); }\n  .btn:disabled { opacity:.5; }\n\n  /* 상태 램프 */\n  .lamps { display:flex; justify-content:space-around; align-items:center; }\n  .lampbox { display:flex; align-items:center; gap:6px; font-size:16px; line-height:20px; opacity:.3; transition:all .3s; }\n  .lampbox.on { opacity:1; }\n  .lamp { width:25px; height:25px; border-radius:50%; background:#3a3f48; }\n  .lampbox.on .lamp { background:var(--c); box-shadow:0 0 8px var(--c); }\n  .lampbox[data-lamp=\"alert\"].on .lamp { animation:blink 1s infinite; }\n  .siren { font-size:20px; line-height:22px; filter:grayscale(1); }\n  .lampbox[data-lamp=\"run\"].on .siren { filter:none; animation:blink .6s infinite; }\n  @keyframes blink { 50% { opacity:.3; } }\n\n  .msg { text-align:center; padding:2px 6px; border-radius:5px; background:#181b1f;\n         font-weight:bold; font-size:16px; line-height:20px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n\n  /* 장비: 2행 3열 */\n  .devs { flex:1; min-height:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:repeat(2,1fr); gap:8px; }\n  .dev { box-sizing:border-box; display:flex; align-items:center; justify-content:center; gap:6px; padding:0 6px;\n         border:2px solid #333; border-radius:8px; background:#1f2228; color:#777; transition:all .4s; min-width:0; }\n  .dev .ico { font-size:22px; line-height:1; }\n  .dev .nm  { font-size:15px; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }\n  .dev.on { border-color:#42a5f5; color:#fff; box-shadow:0 0 10px rgba(66,165,245,.6); }\n  .dev.on .ico { animation:pulse 1.2s ease-in-out infinite; }\n  @keyframes pulse { 50% { transform:scale(1.2); } }\n</style>\n\n<script>\n  const TOKEN = 'demo-token-change-me';\n  const BASE = location.origin;\n\n  function toggleOpen(open) {\n    document.getElementById('collapsed').classList.toggle('show', !open);\n    document.getElementById('wrap').classList.toggle('open', open);\n  }\n\n  const LAMP = { NORMAL:'normal', RECOVERED:'normal',\n                 ANOMALY:'alert', DETECTED:'alert', SEVERE:'alert',\n                 MITIGATING:'run' };\n  const TXT = {\n    NORMAL: '정상 운전 중',\n    RECOVERED: '정상화 완료 - 정상 운전 복귀',\n    ANOMALY: '이상 발생 - 수치 상승 중',\n    DETECTED: '이상 감지 - 임계값 초과',\n    SEVERE: '심각 - 장비 자동 기동 대기',\n    MITIGATING: '장비 작동 중 - 자동 조치'\n  };\n  const ANOM = { temp:'온도', tempLow:'저온', humi:'습도', co2:'CO2' };\n  const DEV = { chiller:'d-chiller', heater:'d-heater', humidifier:'d-humidifier',\n                dehumidifier:'d-dehumidifier', ahu:'d-ahu' };\n\n  function setMsg(text) {\n    document.querySelectorAll('.msgText').forEach(el => el.textContent = text);\n  }\n\n  function send(action, btn) {\n    btn.disabled = true;\n    fetch(`${BASE}/grafana-trigger?action=${encodeURIComponent(action)}&token=${TOKEN}`)\n      .then(r => setMsg(r.ok ? `명령 전송됨: ${action}` : `전송 실패 (${r.status})`))\n      .catch(() => setMsg('연결 실패: Node-RED 확인'))\n      .finally(() => { btn.disabled = false; });\n  }\n\n  function render(s) {\n    const kind = LAMP[s.stage] || 'normal';\n    document.querySelectorAll('[data-lamp]').forEach(el => {\n      el.classList.toggle('on', el.dataset.lamp === kind);\n    });\n\n    let text = TXT[s.stage] || '';\n    if (s.anomaly_type) text += ` (${ANOM[s.anomaly_type] || s.anomaly_type})`;\n    setMsg(text);\n\n    const eq = s.equipment || {};\n    for (const k in DEV) {\n      document.getElementById(DEV[k]).classList.toggle('on', !!eq[k]);\n    }\n  }\n\n  async function poll() {\n    try {\n      const r = await fetch(`${BASE}/grafana-status?token=${TOKEN}`);\n      if (!r.ok) throw new Error(r.status);\n      render(await r.json());\n    } catch (e) {\n      setMsg('Node-RED 연결 끊김');\n    }\n  }\n\n  poll();\n  setInterval(poll, 2000);\n</script>",
+        "output": "str",
+        "x": 270,
+        "y": 740,
+        "wires": [
+            [
+                "1d7c89f694813df7"
+            ]
+        ]
+    },
+    {
+        "id": "af38f5631f849187",
+        "type": "inject",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "9876b967aff22922"
+            ]
+        ]
+    },
+    {
+        "id": "1337b0d9aafa979c",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "재실인원생성",
+        "func": "// 1. 최초 실행 시 10개층 × 4개 룸 (총 40개) 상태 구조 정의\nif (!context.rooms) {\n    context.rooms = {};\n    for (let f = 1; f <= 10; f++) {\n        for (let r of ['A', 'B', 'C', 'D']) {\n            context.rooms[`${f}F_${r}`] = 0; // 초기 상태는 0명으로 시작\n        }\n    }\n}\n\n// 2. 현재 시각(시) 기준 실시간 시나리오 가이드라인 매핑 (2026년 기준 실시간 감지)\nconst now = new Date();\nconst hour = now.getHours();\n\nlet targetTotal = 4;        // 시간대별 목표 총 인원 수\nlet activeChangeRooms = 4;   // 5초마다 인원 변동을 줄 방의 개수 (기본값)\nlet directionWeight = 0.3;   // 목표 수치 수렴을 위한 가중치 확률\n\nif (hour >= 20 || hour < 7) {\n    // 20:00 ~ 07:00 -> 야간/새벽 최소 유지 (1% = 약 4명)\n    targetTotal = 4;\n    activeChangeRooms = 4;   // 야간에는 가끔씩만 움직임\n    directionWeight = 0.1;   // 강력하게 감소/최저 유지 유도\n} \nelse if (hour >= 7 && hour < 9) {\n    // 07:00 ~ 09:00 -> 출근 시간 급격한 증가 (목표 80% = 320명)\n    targetTotal = 320;\n    activeChangeRooms = 28;  // 출근 피크: 40개 룸 중 28개 룸이 동시에 인원 변동 (급상승 연출)\n    directionWeight = 0.85;  // 85% 확률로 무조건 인원 추가(+1) 발생\n} \nelse if (hour >= 9 && hour < 17) {\n    // 09:00 ~ 17:00 -> 낮 일과 시간 유지 (70~80% = 평균 300명)\n    targetTotal = 300;\n    activeChangeRooms = 6;   // 근무 중에는 룸 내에서만 조금씩 늘거나 줄어듦\n    directionWeight = 0.5;   // 균형 유지\n} \nelse if (hour >= 17 && hour < 18) {\n    // 17:00 ~ 18:00 -> 퇴근 시간 1차 급격한 감소 (목표 20% = 80명)\n    targetTotal = 80;\n    activeChangeRooms = 25;  // 퇴근 피크: 25개 룸이 동시에 인원 감소 (급하강 연출)\n    directionWeight = 0.15;  // 85% 확률로 무조건 인원 감소(-1) 발생\n} \nelse if (hour >= 18 && hour < 20) {\n    // 18:00 ~ 20:00 -> 잔류 인원 서서히 감소 (20% -> 1% 서서히 수렴)\n    targetTotal = 4;\n    activeChangeRooms = 10;  // 잔류조 퇴근: 적당한 속도로 인원 감소\n    directionWeight = 0.2;   // 하강 안정화\n}\n\n// 3. 무작위 타겟 룸 추출 및 인원 증감 적용\nconst roomKeysList = Object.keys(context.rooms);\nconst roomsToChange = roomKeysList.sort(() => 0.5 - Math.random()).slice(0, activeChangeRooms);\n\n// 현재 빌딩 전체 인원 실시간 계산\nlet currentTotal = Object.values(context.rooms).reduce((a, b) => a + b, 0);\n\nroomsToChange.forEach(key => {\n    let currentVal = context.rooms[key];\n    let change = 0;\n    \n    // 실시간 인원이 목표 타겟보다 적은지 많은지에 따라 가중치 판별\n    if (currentTotal < targetTotal) {\n        change = Math.random() < directionWeight ? 1 : -1;\n    } else {\n        change = Math.random() > directionWeight ? -1 : 1;\n    }\n    \n    // 개별 룸당 Max 10명, Min 0명 절대 한계치 적용\n    let newVal = currentVal + change;\n    if (newVal > 10) newVal = 10;\n    if (newVal < 0) newVal = 0;\n    \n    context.rooms[key] = newVal;\n    currentTotal = currentTotal - currentVal + newVal; // 집계치 즉시 동기화\n});\n\n// 4. InfluxDB v2.x 수신 규격(Tag/Field 구조 배열)으로 포맷 변환\nconst influxPayload = [];\nfor (let f = 1; f <= 10; f++) {\n    for (let r of ['A', 'B', 'C', 'D']) {\n        const key = `${f}F_${r}`;\n        influxPayload.push([\n            { occupancy: context.rooms[key] }, // Field 데이터 (그라파나에서 숫자로 매핑)\n            { floor: `${f}F`, room: r }         // Tag 데이터 (그라파나에서 필터 및 그룹화로 사용)\n        ]);\n    }\n}\n\nmsg.payload = influxPayload;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 820,
+        "wires": [
+            [
+                "8cec38be06dda788"
+            ]
+        ]
+    },
+    {
+        "id": "0d07a2ba421347fd",
+        "type": "inject",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 820,
+        "wires": [
+            [
+                "1337b0d9aafa979c"
+            ]
+        ]
+    },
+    {
+        "id": "e96f60e1adb2a256",
+        "type": "http in",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "simulate",
+        "url": "/simulate",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "9abb10f9a65da0d1",
+                "867b308d7d4b6e7b"
+            ]
+        ]
+    },
+    {
+        "id": "9abb10f9a65da0d1",
+        "type": "debug",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "디버그 ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "867b308d7d4b6e7b",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "응답 메시지 작성",
+        "func": "// 그라파나가 보낸 쿼리 파라미터는 msg.req.query에 들어있습니다.\nconst action = msg.req.query.action;\nconst from = msg.req.query.from;\nmsg.statusCode = 200;\n// 로그 출력용 데이터 가공\nmsg.payload = {\n    status: \"success\",\n    message: \"노드레드가 요청을 정상 수신했습니다.\",\n    receivedData: {\n        action: action,\n        from: from\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 620,
+        "wires": [
+            [
+                "883e801f5dc35ab7"
+            ]
+        ]
+    },
+    {
+        "id": "e1263d79d7f61a65",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "function 1",
+        "func": "// =====================================================================\n// 가상 빌딩 시뮬레이터\n//   ① 명령 처리  →  ② 시나리오 엔진  →  ③ 출력 생성  →  ④ 상태 저장\n// =====================================================================\n\n// ---------- 설정 (튜닝은 이 블록만 수정) ----------\nconst CONFIG = {\n    // 이상 종류 정의 (새 이상은 여기에 한 줄 추가)\n    scenario: {\n        temp:    { sensor: 'temp', dir: 'high', detect: 28,   severe: 30,   ok: 24,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 45.0 },\n        tempLow: { sensor: 'temp', dir: 'low',  detect: 18,   severe: 15,   ok: 20,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 5.0  },\n        humi:    { sensor: 'humi', dir: 'high', detect: 60,   severe: 75,   ok: 55,  rise: 8.0,  fall: 11.5, noise: 0.8, cap: 100.0 },\n        co2:     { sensor: 'co2',  dir: 'high', detect: 1000, severe: 1300, ok: 900, rise: 250,  fall: 220,  noise: 20,  cap: 3000 }\n    },\n    autoStartTicks: 2,                                   // 감지 후 이 틱 이상 유지되면 자동 가동\n    normalTarget: { temp: 22.0, humi: 45.0, co2: 500, co2Occupied: 650 },  // 정상 센서 목표값\n    command: {\n        ANOMALY_TEMP: 'temp',\n        ANOMALY_TEMP_LOW: 'tempLow',\n        ANOMALY_HUMI: 'humi',\n        ANOMALY_CO2: 'co2'\n    }\n};\n\nconst SC = CONFIG.scenario;\nconst noise = (amp) => (Math.random() - 0.5) * amp;\n\n// ---------- 상태 로드 ----------\nlet s = context.get('state') || {\n    anomaly: null, equipOn: false, detectTicks: 0, recovered: false,\n    temp: 22.0, humi: 45.0, co2: 550, lux: 350, occupied: false,\n    view: null   // 직전 틱 판정 (램프/장비 표시용)\n};\n\n// =====================================================================\n// ① 명령 처리 (버튼 / HTTP 공통)\n// =====================================================================\nfunction extractCommand(m) {\n    let raw;\n    if (m.req && m.req.query && m.req.query.action !== undefined) {\n        raw = m.req.query.action;\n    } else if (typeof m.payload === 'string') {\n        raw = m.payload;\n    }\n    if (raw === undefined) return 'TICK';\n    return String(raw).trim().toUpperCase();\n}\n\nfunction applyCommand(state, cmd) {\n    const anomaly = CONFIG.command[cmd];\n    if (anomaly !== undefined) {\n        if (state.anomaly !== anomaly) {\n            state.anomaly = anomaly;\n            state.equipOn = false;\n            state.detectTicks = 0;\n            state.recovered = false;\n        }\n    } else if (cmd === 'RESET') {\n        state.anomaly = null;\n        state.equipOn = false;\n        state.detectTicks = 0;\n        state.recovered = false;\n    } else if (cmd === 'OCCUPY_ON') {\n        state.occupied = true;\n    } else if (cmd === 'OCCUPY_OFF') {\n        state.occupied = false;\n    } else if (cmd !== 'TICK') {\n        node.warn(`알 수 없는 명령: [${cmd}]`);\n    }\n}\n\napplyCommand(s, extractCommand(msg));\n\n// =====================================================================\n// ② 시나리오 엔진 (이상 수치 변화 · 단계 판정 · 장비 판정)\n// =====================================================================\nconst isBeyond = (L, x, lim) => (L.dir === 'high' ? x >= lim : x <= lim);\nconst isRecovered = (L, x) => (L.dir === 'high' ? x <= L.ok : x >= L.ok);\n\n// 이상 센서: 이상 방향 변화 / 장비 가동 중에는 정상 방향 변화\nfunction stepAnomaly(state) {\n    if (!state.anomaly) return;\n    const L = SC[state.anomaly];\n    const key = L.sensor;\n    const k = (L.dir === 'high') ? 1 : -1;\n    if (state.equipOn) state[key] -= k * L.fall + noise(L.noise);\n    else               state[key] += k * L.rise + noise(L.noise);\n    state[key] = (L.dir === 'high') ? Math.min(state[key], L.cap) : Math.max(state[key], L.cap);\n}\n\n// 정상 센서: 목표값 주변 변동 (이상 센서 제외)\nfunction stepNormal(state) {\n    const T = CONFIG.normalTarget;\n    const anomSensor = state.anomaly ? SC[state.anomaly].sensor : null;\n    if (anomSensor !== 'temp') state.temp += (T.temp - state.temp) * 0.1 + noise(0.3);\n    if (anomSensor !== 'humi') state.humi += (T.humi - state.humi) * 0.1 + noise(1.0);\n    if (anomSensor !== 'co2')  state.co2  += ((state.occupied ? T.co2Occupied : T.co2) - state.co2) * 0.1 + noise(20);\n}\n\n// 장비 가동 / 정상 복귀 판정\nfunction judgeScenario(state) {\n    if (!state.anomaly) return;\n    const L = SC[state.anomaly];\n    const v = state[L.sensor];\n\n    if (!state.equipOn) {\n        state.detectTicks = isBeyond(L, v, L.detect) ? state.detectTicks + 1 : 0;\n        if (isBeyond(L, v, L.severe) || state.detectTicks >= CONFIG.autoStartTicks) {\n            state.equipOn = true;\n        }\n    } else if (isRecovered(L, v)) {\n        state.anomaly = null;\n        state.equipOn = false;\n        state.detectTicks = 0;\n        state.recovered = true;\n    }\n}\n\n// 단계(stage) 계산\nfunction calcStage(state) {\n    if (!state.anomaly) return state.recovered ? 'RECOVERED' : 'NORMAL';\n    const L = SC[state.anomaly];\n    const v = state[L.sensor];\n    if (state.equipOn) return 'MITIGATING';\n    if (isBeyond(L, v, L.severe)) return 'SEVERE';\n    if (isBeyond(L, v, L.detect)) return 'DETECTED';\n    return 'ANOMALY';\n}\n\nstepAnomaly(s);\nstepNormal(s);\njudgeScenario(s);\nconst stage = calcStage(s);\n\n// 조도: 외부 일사량 + 실내 조명\nfunction stepLux(state) {\n    const hour = new Date().getHours() + new Date().getMinutes() / 60;\n    let outdoor = 0;\n    if (hour > 6 && hour < 19) outdoor = Math.sin(Math.PI * (hour - 6) / 13) * 1000;\n    outdoor = Math.max(0, outdoor + noise(60));\n    const lightOn = state.occupied && outdoor < 400;\n    const indoorTarget = outdoor * 0.3 + (lightOn ? 350 : 0);\n    state.lux += (indoorTarget - state.lux) * 0.3 + noise(5);\n    state.lux = Math.min(Math.max(state.lux, 0), 1000);\n    return { outdoor, lightOn };\n}\nconst { outdoor, lightOn } = stepLux(s);\n\n// 직전 틱 판정을 화면/장비 표시에 사용 (수치 변화 이후 점등)\nconst cur = { anomaly: s.anomaly, equipOn: s.equipOn, stage: stage };\nconst shown = s.view || cur;\ns.view = cur;\n\ncontext.set('state', s);\n\n// =====================================================================\n// ③ 출력 생성 (InfluxDB용 payload, 장비 표시)\n// =====================================================================\nconst equip = {\n    chiller:      shown.anomaly === 'temp'    && shown.equipOn,\n    heater:       shown.anomaly === 'tempLow' && shown.equipOn,\n    humidifier:   false,\n    dehumidifier: shown.anomaly === 'humi'    && shown.equipOn,\n    ahu:          shown.anomaly === 'co2'     && shown.equipOn\n};\n\nfunction calcDeviceStatus(state, eq) {\n    let hvac = \"OFF\";\n    if (state.temp > 28) hvac = \"COOL_ON\";\n    else if (state.temp < 18) hvac = \"HEAT_ON\";\n    if (eq.chiller) hvac = \"COOL_ON\";\n    if (eq.heater)  hvac = \"HEAT_ON\";\n\n    let humi = \"OFF\";\n    if (state.humi < 40) humi = \"HUMIDIFIER_ON\";\n    else if (state.humi > 60) humi = \"DEHUMIDIFIER_ON\";\n    if (eq.dehumidifier) humi = \"DEHUMIDIFIER_ON\";\n\n    let vent = \"OFF\";\n    if (state.co2 > 1000) vent = \"VENT_HIGH\";\n    else if (state.co2 > 800) vent = \"VENT_LOW\";\n    if (eq.ahu) vent = \"AHU_FRESH_AIR\";\n\n    return { hvac, humi, vent };\n}\n\nfunction calcPower(dev, eq, lightOn) {\n    let p = Math.floor(Math.random() * (520 - 470) + 470);\n    if (dev.hvac !== \"OFF\") p += 200;\n    if (eq.dehumidifier) p += 120;\n    if (eq.ahu) p += 150;\n    if (eq.heater) p += 150;\n    if (lightOn) p += 100;\n    return p;\n}\n\nconst dev = calcDeviceStatus(s, equip);\nconst basePower = calcPower(dev, equip, lightOn);\nconst light_status = lightOn ? \"LIGHT_ON\" : \"OFF\";\nconst system_state = shown.equipOn ? \"RECOVERING\" : (shown.anomaly ? \"ANOMALY\" : \"NORMAL\");\n\nconst payload = {\n    timestamp: Date.now(),\n    temperature: parseFloat(s.temp.toFixed(1)),\n    humidity: Math.round(s.humi),\n    co2: Math.floor(s.co2),\n    lux: Math.floor(s.lux),\n    outdoor_lux: Math.floor(outdoor),\n    occupied: s.occupied,\n    power_consumption: basePower,\n    hvac_status: dev.hvac,\n    humidity_status: dev.humi,\n    vent_status: dev.vent,\n    light_status: light_status,\n    system_state: system_state,\n    stage: shown.stage,\n    anomaly_type: shown.anomaly,\n    disable_rate_check: s.anomaly !== null\n};\n\n// =====================================================================\n// ④ 상태 저장 (Grafana 상태 화면용, flow 컨텍스트)\n// =====================================================================\nflow.set('simStatus', {\n    timestamp: payload.timestamp,\n    stage: shown.stage,\n    anomaly_type: shown.anomaly,\n    equipment: equip,\n    temperature: payload.temperature,\n    humidity: payload.humidity,\n    co2: payload.co2,\n    lux: payload.lux,\n    occupied: s.occupied\n});\n\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9876b967aff22922",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "명령처리",
+        "func": "// 버튼/HTTP 명령을 읽어 상태 명령으로 정리\nconst CMD_MAP = {\n    ANOMALY_TEMP: 'temp',\n    ANOMALY_TEMP_LOW: 'tempLow',\n    ANOMALY_HUMI: 'humi',\n    ANOMALY_CO2: 'co2'\n};\n\nlet raw;\nif (msg.req && msg.req.query && msg.req.query.action !== undefined) {\n    raw = msg.req.query.action;\n} else if (typeof msg.payload === 'string') {\n    raw = msg.payload;\n}\nconst cmd = (raw === undefined) ? 'TICK' : String(raw).trim().toUpperCase();\n\nlet s = context.get('state') || {\n    anomaly: null, equipOn: false, detectTicks: 0, recovered: false,\n    temp: 22.0, humi: 45.0, co2: 550, lux: 350, occupied: false,\n    view: null\n};\n\nif (CMD_MAP[cmd] !== undefined) {\n    if (s.anomaly !== CMD_MAP[cmd]) {\n        s.anomaly = CMD_MAP[cmd];\n        s.equipOn = false;\n        s.detectTicks = 0;\n        s.recovered = false;\n    }\n} else if (cmd === 'RESET') {\n    s.anomaly = null;\n    s.equipOn = false;\n    s.detectTicks = 0;\n    s.recovered = false;\n} else if (cmd === 'OCCUPY_ON') {\n    s.occupied = true;\n} else if (cmd === 'OCCUPY_OFF') {\n    s.occupied = false;\n} else if (cmd !== 'TICK') {\n    node.warn(`알 수 없는 명령: [${cmd}]`);\n}\n\n// 다음 노드로 상태 전달\nmsg.state = s;\ncontext.set('state', s);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "00a49c119100c165"
+            ]
+        ]
+    },
+    {
+        "id": "00a49c119100c165",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "시나리오엔진",
+        "func": "\n\n// ---------- 설정 ----------\nconst SC = {\n    temp:    { sensor: 'temp', dir: 'high', detect: 28,   severe: 30,   ok: 24,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 45.0 },\n    tempLow: { sensor: 'temp', dir: 'low',  detect: 18,   severe: 15,   ok: 20,  rise: 3.0,  fall: 3.0,  noise: 0.4, cap: 5.0  },\n    humi:    { sensor: 'humi', dir: 'high', detect: 60,   severe: 75,   ok: 55,  rise: 8.0,  fall: 11.5, noise: 0.8, cap: 100.0 },\n    co2:     { sensor: 'co2',  dir: 'high', detect: 1000, severe: 1300, ok: 900, rise: 250,  fall: 220,  noise: 20,  cap: 3000 }\n};\nconst AUTO_START_TICKS = 4;\nconst NORMAL_TARGET = { temp: 22.0, humi: 45.0, co2: 500, co2Occupied: 650 };\n\nconst noise = (amp) => (Math.random() - 0.5) * amp;\nconst isBeyond = (L, x, lim) => (L.dir === 'high' ? x >= lim : x <= lim);\nconst isRecovered = (L, x) => (L.dir === 'high' ? x <= L.ok : x >= L.ok);\n\n// ---------- 상태 ----------\nconst s = context.get('state') || msg.state;\n\n// 이상 센서: 이상 방향 변화 / 장비 가동 중에는 정상 방향 변화\nfunction stepAnomaly(st) {\n    if (!st.anomaly) return;\n    const L = SC[st.anomaly];\n    const k = (L.dir === 'high') ? 1 : -1;\n    if (st.equipOn) st[L.sensor] -= k * L.fall + noise(L.noise);\n    else            st[L.sensor] += k * L.rise + noise(L.noise);\n    st[L.sensor] = (L.dir === 'high')\n        ? Math.min(st[L.sensor], L.cap)\n        : Math.max(st[L.sensor], L.cap);\n}\n\n// 정상 센서: 목표값 주변 변동 (이상 센서 제외)\nfunction stepNormal(st) {\n    const anomSensor = st.anomaly ? SC[st.anomaly].sensor : null;\n    if (anomSensor !== 'temp') st.temp += (NORMAL_TARGET.temp - st.temp) * 0.1 + noise(0.3);\n    if (anomSensor !== 'humi') st.humi += (NORMAL_TARGET.humi - st.humi) * 0.1 + noise(1.0);\n    if (anomSensor !== 'co2') {\n        const target = st.occupied ? NORMAL_TARGET.co2Occupied : NORMAL_TARGET.co2;\n        st.co2 += (target - st.co2) * 0.1 + noise(20);\n    }\n}\n\n// 장비 가동 / 정상 복귀 판정\nfunction judgeScenario(st) {\n    if (!st.anomaly) return;\n    const L = SC[st.anomaly];\n    const v = st[L.sensor];\n    if (!st.equipOn) {\n        st.detectTicks = isBeyond(L, v, L.detect) ? st.detectTicks + 1 : 0;\n        if (isBeyond(L, v, L.severe) || st.detectTicks >= AUTO_START_TICKS) {\n            st.equipOn = true;\n        }\n    } else if (isRecovered(L, v)) {\n        st.anomaly = null;\n        st.equipOn = false;\n        st.detectTicks = 0;\n        st.recovered = true;\n    }\n}\n\n// 단계(stage) 계산\n\nfunction calcStage(st) {\n    if (!st.anomaly) return st.recovered ? 'RECOVERED' : 'NORMAL';\n    const L = SC[st.anomaly];\n    const v = st[L.sensor];\n    if (st.equipOn) return 'MITIGATING';\n    if (isBeyond(L, v, L.severe)) return 'SEVERE';\n    if (isBeyond(L, v, L.detect)) return 'DETECTED';\n    return 'NORMAL';   // 기준 도달 전에는 정상 표시 (ANOMALY 단계 제거)\n}\n\n// 조도: 외부 일사량 + 실내 조명\nfunction stepLux(st) {\n    const now = new Date();\n    const hour = now.getHours() + now.getMinutes() / 60;\n    let outdoor = 0;\n    if (hour > 6 && hour < 19) outdoor = Math.sin(Math.PI * (hour - 6) / 13) * 1000;\n    outdoor = Math.max(0, outdoor + noise(60));\n    const lightOn = st.occupied && outdoor < 400;\n    const indoorTarget = outdoor * 0.3 + (lightOn ? 350 : 0);\n    st.lux += (indoorTarget - st.lux) * 0.3 + noise(5);\n    st.lux = Math.min(Math.max(st.lux, 0), 1000);\n    return { outdoor, lightOn };\n}\n\nstepAnomaly(s);\nstepNormal(s);\njudgeScenario(s);\nconst stage = calcStage(s);\nconst envInfo = stepLux(s);\n\n\n// 직전 틱 판정을 표시용으로 사용 (수치 변화 이후 점등)\nconst cur = { anomaly: s.anomaly, equipOn: s.equipOn, stage: stage };\nconst shown = s.view || cur;\ns.view = cur;\n\ncontext.set('state', s);\n// 다음 노드로 전달\nmsg.state = s;\nmsg.shown = shown;\nmsg.envInfo = envInfo;\n\n//node.warn(`anomaly=${s.anomaly} temp=${s.temp.toFixed(1)} humi=${s.humi.toFixed(1)} co2=${s.co2.toFixed(0)} equipOn=${s.equipOn} stage=${stage}`);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 240,
+        "wires": [
+            [
+                "9bd280699bdc94a2",
+                "547534bbefc35cf3"
+            ]
+        ]
+    },
+    {
+        "id": "9bd280699bdc94a2",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "출력생성",
+        "func": "const s = msg.state;\nconst shown = msg.shown;\nconst envInfo = msg.envInfo;\n\n// 장비 가동 상태 (직전 틱 판정 기준)\nconst equip = {\n    chiller:      shown.anomaly === 'temp'    && shown.equipOn,\n    heater:       shown.anomaly === 'tempLow' && shown.equipOn,\n    humidifier:   false,\n    dehumidifier: shown.anomaly === 'humi'    && shown.equipOn,\n    ahu:          shown.anomaly === 'co2'     && shown.equipOn\n};\n\n// 장비/환기 상태 문자열\nlet hvac = \"OFF\";\nif (s.temp > 28) hvac = \"COOL_ON\";\nelse if (s.temp < 18) hvac = \"HEAT_ON\";\nif (equip.chiller) hvac = \"COOL_ON\";\nif (equip.heater)  hvac = \"HEAT_ON\";\n\nlet humiStatus = \"OFF\";\nif (s.humi < 40) humiStatus = \"HUMIDIFIER_ON\";\nelse if (s.humi > 60) humiStatus = \"DEHUMIDIFIER_ON\";\nif (equip.dehumidifier) humiStatus = \"DEHUMIDIFIER_ON\";\n\nlet vent = \"OFF\";\nif (s.co2 > 1000) vent = \"VENT_HIGH\";\nelse if (s.co2 > 800) vent = \"VENT_LOW\";\nif (equip.ahu) vent = \"AHU_FRESH_AIR\";\n\n// 전력 계산\nlet power = Math.floor(Math.random() * (520 - 470) + 470);\nif (hvac !== \"OFF\") power += 200;\nif (equip.dehumidifier) power += 120;\nif (equip.ahu) power += 150;\nif (equip.heater) power += 150;\nif (envInfo.lightOn) power += 100;\n\nconst payload = {\n    timestamp: Date.now(),\n    temperature: parseFloat(s.temp.toFixed(1)),\n    humidity: Math.round(s.humi),\n    co2: Math.floor(s.co2),\n    lux: Math.floor(s.lux),\n    outdoor_lux: Math.floor(envInfo.outdoor),\n    occupied: s.occupied,\n    power_consumption: power,\n    hvac_status: hvac,\n    humidity_status: humiStatus,\n    vent_status: vent,\n    light_status: envInfo.lightOn ? \"LIGHT_ON\" : \"OFF\",\n    system_state: shown.equipOn ? \"RECOVERING\" : (shown.anomaly ? \"ANOMALY\" : \"NORMAL\"),\n    stage: shown.stage,\n    anomaly_type: shown.anomaly,\n    disable_rate_check: s.anomaly !== null\n};\n\n// 다음 노드(상태 저장)로 전달할 정보\nmsg.payload = payload;\nmsg.equip = equip;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 300,
+        "wires": [
+            [
+                "49358baa5e0685cc"
+            ]
+        ]
+    },
+    {
+        "id": "49358baa5e0685cc",
+        "type": "function",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "상태저장",
+        "func": "// Grafana 상태 화면용 (flow 컨텍스트)\nconst p = msg.payload;\n\nflow.set('simStatus', {\n    timestamp: p.timestamp,\n    stage: p.stage,\n    anomaly_type: p.anomaly_type,\n    equipment: msg.equip,\n    temperature: p.temperature,\n    humidity: p.humidity,\n    co2: p.co2,\n    lux: p.lux,\n    occupied: p.occupied\n});\n\n// payload는 그대로 InfluxDB / Postgres 노드로 전달\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 300,
+        "wires": [
+            [
+                "470c4e6e0c4d9da9",
+                "02c970653782268a"
+            ]
+        ]
+    },
+    {
+        "id": "547534bbefc35cf3",
+        "type": "debug",
+        "z": "4d46e357b567aa4b",
+        "d": true,
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "sensor-inject",
+        "type": "inject",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "센서 데이터 (5초)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "sensor",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "sensor-generator"
+            ]
+        ]
+    },
+    {
+        "id": "sensor-generator",
+        "type": "function",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "센서 데이터 생성",
+        "func": "let temp = context.get('temp') || 22.0;\nlet humi = context.get('humi') || 50.0;\nlet co2 = context.get('co2') || 600;\nlet lux = context.get('lux') || 350;\nlet occupied = context.get('occupied') || false;\nlet power = context.get('power') || 500;\n\ntemp += (Math.random() - 0.5) * 0.4;\nhumi += (Math.random() - 0.5) * 1.0;\nco2 += (Math.random() - 0.5) * 30;\nlux += (Math.random() - 0.6) * 50;\n\nlet occTimer = context.get('occTimer') || 0;\noccTimer++;\nif (occTimer > 30) {\n    occupied = Math.random() > 0.5;\n    occTimer = 0;\n}\n\nif (occupied) {\n    power += Math.random() * 50;\n} else {\n    power -= Math.random() * 30;\n}\n\ntemp = Math.max(15, Math.min(30, temp));\nhumi = Math.max(20, Math.min(90, humi));\nco2 = Math.max(400, Math.min(2500, co2));\nlux = Math.max(10, Math.min(1000, lux));\npower = Math.max(400, Math.min(1000, power));\n\ncontext.set('temp', temp);\ncontext.set('humi', humi);\ncontext.set('co2', co2);\ncontext.set('lux', lux);\ncontext.set('occupied', occupied);\ncontext.set('power', power);\ncontext.set('occTimer', occTimer);\n\nmsg.payload = {\n    timestamp: new Date().toISOString(),\n    temperature: parseFloat(temp.toFixed(1)),\n    humidity: Math.round(humi),\n    co2: Math.round(co2),\n    lux: Math.round(lux),\n    occupied: occupied,\n    power_consumption: Math.round(power)\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "data-validator",
+                "aws-publish"
+            ]
+        ]
+    },
+    {
+        "id": "data-validator",
+        "type": "function",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "데이터 검증",
+        "func": "const payload = msg.payload;\nconst issues = [];\n\nif (payload.temperature < 15 || payload.temperature > 30) {\n    issues.push('Temperature out of range');\n}\nif (payload.humidity < 20 || payload.humidity > 90) {\n    issues.push('Humidity out of range');\n}\nif (payload.co2 < 400 || payload.co2 > 2500) {\n    issues.push('CO2 out of range');\n}\n\nconst lastTemp = context.get('lastTemp') || payload.temperature;\nif (Math.abs(payload.temperature - lastTemp) > 5) {\n    issues.push('Abnormal temp change');\n}\n\ncontext.set('lastTemp', payload.temperature);\n\nmsg.payload.quality_score = Math.max(0, 100 - (issues.length * 20));\nmsg.payload.issues = issues;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "postgres-write",
+                "0ffc15c09e527f9e",
+                "ceda2746667c139b"
+            ]
+        ]
+    },
+    {
+        "id": "aws-publish",
+        "type": "mqtt out",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "AWS IoT 발행",
+        "topic": "building/BUILDING_01/sensors",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aws-iot-broker",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "influx-write",
+        "type": "influxdb out",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "influxdb": "influx-config",
+        "name": "InfluxDB 저장",
+        "measurement": "sensor_data",
+        "precision": "ms",
+        "retentionPolicy": "",
+        "database": "",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "yknam",
+        "bucket": "node_red_bucket",
+        "x": 830,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "postgres-write",
+        "type": "function",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "PostgreSQL INSERT",
+        "func": "const p = msg.payload;\nconst ts = new Date(p.timestamp).toISOString();\nif (p.quality_score<100){\nmsg.topic = `INSERT INTO sensor_data \n(timestamp, temperature, humidity, co2, lux, occupied, power_consumption, quality_score) \nVALUES \n('${ts}', ${p.temperature}, ${p.humidity}, ${p.co2}, ${p.lux}, ${p.occupied}, ${p.power_consumption}, ${p.quality_score})`;\nreturn msg;\n}\nelse {return null;}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 220,
+        "wires": [
+            [
+                "postgres-query-node"
+            ]
+        ]
+    },
+    {
+        "id": "postgres-query-node",
+        "type": "postgresql",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "PostgreSQL 쿼리",
+        "query": "",
+        "postgreSQLConfig": "postgres-config-fixed",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 890,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ffc15c09e527f9e",
+        "type": "debug",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ceda2746667c139b",
+        "type": "function",
+        "z": "ddc-complete-tab",
+        "d": true,
+        "name": "timestamp변환",
+        "func": "// InfluxDB 노드로 가기 직전 Function 노드 예시\nif (msg.payload && msg.payload.timestamp) {\n    // 문자열을 숫자(Float)로 강제 변환\n    msg.payload.timestamp = parseFloat(msg.payload.timestamp);\n}\nreturn msg;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 120,
+        "wires": [
+            [
+                "influx-write"
+            ]
+        ]
+    }
+]

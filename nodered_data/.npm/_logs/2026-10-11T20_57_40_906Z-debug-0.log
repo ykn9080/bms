@@ -1,0 +1,53 @@
+0 verbose cli /usr/local/bin/node /usr/src/node-red/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.21.0
+2 info using node@v24.21.0
+3 silly config load:file:/usr/src/node-red/node_modules/npm/npmrc
+4 silly config load:file:/data/.npmrc
+5 silly config load:file:/usr/src/node-red/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install node-red-contrib-s7@3.1.3
+8 verbose argv "install" "--no-audit" "--no-update-notifier" "--no-fund" "--save" "--save-prefix" "~" "--omit" "dev" "--engine-strict" "--" "node-red-contrib-s7@3.1.3"
+9 verbose logfile logs-max:10 dir:/data/.npm/_logs/2026-10-11T20_57_40_906Z-
+10 verbose logfile /data/.npm/_logs/2026-10-11T20_57_40_906Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:587202560 maxSize:146800640 maxEntrySize:73400320
+13 silly idealTree buildDeps
+14 silly fetch manifest node-red-contrib-s7@3.1.3
+15 silly packumentCache full:https://registry.npmjs.org/node-red-contrib-s7 cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/node-red-contrib-s7 8198ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/node-red-contrib-s7 set size:undefined disposed:false
+18 silly placeDep ROOT node-red-contrib-s7@3.1.3 OK for: node-red-project@0.0.1 want: 3.1.3
+19 silly fetch manifest @st-one-io/nodes7@1.1.2
+20 silly packumentCache full:https://registry.npmjs.org/@st-one-io%2fnodes7 cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/@st-one-io%2fnodes7 1002ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/@st-one-io%2fnodes7 set size:undefined disposed:false
+23 silly placeDep ROOT @st-one-io/nodes7@1.1.2 OK for: node-red-contrib-s7@3.1.3 want: 1.1.2
+24 silly fetch manifest iso-on-tcp@^0.1.0
+25 silly packumentCache full:https://registry.npmjs.org/iso-on-tcp cache-miss
+26 http fetch GET 200 https://registry.npmjs.org/iso-on-tcp 601ms (cache miss)
+27 silly packumentCache full:https://registry.npmjs.org/iso-on-tcp set size:undefined disposed:false
+28 silly placeDep ROOT iso-on-tcp@0.1.0 OK for: @st-one-io/nodes7@1.1.2 want: ^0.1.0
+29 silly reify moves {}
+30 http cache iso-on-tcp@https://registry.npmjs.org/iso-on-tcp/-/iso-on-tcp-0.1.0.tgz 96ms (cache hit)
+31 http cache node-red-contrib-s7@https://registry.npmjs.org/node-red-contrib-s7/-/node-red-contrib-s7-3.1.3.tgz 0ms (cache hit)
+32 http cache @st-one-io/nodes7@https://registry.npmjs.org/@st-one-io/nodes7/-/nodes7-1.1.2.tgz 0ms (cache hit)
+33 silly tarball no local data for iso-on-tcp@https://registry.npmjs.org/iso-on-tcp/-/iso-on-tcp-0.1.0.tgz. Extracting by manifest.
+34 silly tarball no local data for node-red-contrib-s7@https://registry.npmjs.org/node-red-contrib-s7/-/node-red-contrib-s7-3.1.3.tgz. Extracting by manifest.
+35 silly tarball no local data for @st-one-io/nodes7@https://registry.npmjs.org/@st-one-io/nodes7/-/nodes7-1.1.2.tgz. Extracting by manifest.
+36 http fetch GET 200 https://registry.npmjs.org/iso-on-tcp/-/iso-on-tcp-0.1.0.tgz 12301ms (cache miss)
+37 http fetch GET 200 https://registry.npmjs.org/node-red-contrib-s7/-/node-red-contrib-s7-3.1.3.tgz 13802ms (cache miss)
+38 http fetch GET 200 https://registry.npmjs.org/@st-one-io/nodes7/-/nodes7-1.1.2.tgz 15400ms (cache miss)
+39 silly ADD node_modules/iso-on-tcp
+40 silly ADD node_modules/@st-one-io/nodes7
+41 silly ADD node_modules/node-red-contrib-s7
+42 warn install-scripts 2 packages have install scripts not yet covered by allowScripts:
+42 warn install-scripts   core-js@3.50.0 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+42 warn install-scripts   node-red-dashboard@3.6.6 (postinstall: node fixgrid.js)
+42 warn install-scripts
+42 warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+43 verbose cwd /data
+44 verbose os Linux 7.0.0-38-generic
+45 verbose node v24.21.0
+46 verbose npm  v11.21.0
+47 verbose exit 0
+48 info ok

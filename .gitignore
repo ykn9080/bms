@@ -1,0 +1,28 @@
+./aws_certs
+docker-compose.yml.save
+docker-compose.yml-bak
+extract_nodered.sh
+nginx.conf_old
+nodered_backup/
+grafana_data_backup/
+influxdb_config/
+.env
+
+# 1. Grafana
+grafana_data/
+
+# 2. Node-RED (필요한 소스코드만 남기고 데이터/보안 파일 제외)
+nodered_data/node_modules/
+nodered_data/package-lock.json
+nodered_data/flows_cred.json
+nodered_data/flows_backup.json
+nodered_data/settings.js.save
+
+# 3. pgAdmin
+pgadmin_data/
+
+# 4. Postgres SQL Data
+postgres_data/
+
+# 5. InfluxDB Data
+influxdb_data/
