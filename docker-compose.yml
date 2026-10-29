@@ -65,7 +65,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.5'
+          cpus: '1.0'
           memory: 1G
 
   # 4. Grafana 설정 
@@ -81,7 +81,7 @@ services:
       - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
       - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
       - GF_PANELS_DISABLE_SANITIZE_HTML=true
-      - GF_INSTALL_PLUGINS=influxdb,grafana-postgresql-datasource,yesoreyeram-infinity-datasource,marcusolsson-dynamictext-panel,cloudspout-button-panel
+      - GF_INSTALL_PLUGINS=influxdb,grafana-postgresql-datasource,yesoreyeram-infinity-datasource,marcusolsson-dynamictext-panel,cloudspout-button-panel,dzaczek-alpineclock-panel
       - GF_SERVER_ROOT_URL=http://localhost:3000/
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
     depends_on:
