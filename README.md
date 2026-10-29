@@ -1,5 +1,8 @@
 # BMS 데모 시스템
 
+- 📄 소개 페이지 (한국어/English): https://ykn9080.github.io/bms/
+- 🌐 데모 사이트: https://yknam.duckdns.org
+
 Docker Compose 기반의 BMS(건물 관리 시스템) 데모 시스템입니다. 가상 센서 데이터를 생성하고, 이를 시계열 DB와 관계형 DB에 나누어 저장한 뒤 Grafana 대시보드로 시각화합니다.
 
 ## 주요 기능
