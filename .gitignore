@@ -7,6 +7,7 @@ nodered_backup/
 grafana_data_backup/
 influxdb_config/
 .env
+.env-ec2
 
 # 1. Grafana
 grafana_data/
