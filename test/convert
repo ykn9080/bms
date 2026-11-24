@@ -1,0 +1,25 @@
+import json
+
+FRAME_W = 690   # 편집 중 프레임 너비 (px)
+FRAME_H = 790   # 편집 중 프레임 높이 (px)
+
+with open("panel.json", encoding="utf-8") as f:
+    panel = json.load(f)
+
+for el in panel["options"]["root"]["elements"]:
+    p = el.get("placement")
+    if not p:
+        continue
+    if "left" in p:
+        p["left"] = round(p["left"] / FRAME_W * 100, 4)
+    if "width" in p:
+        p["width"] = round(p["width"] / FRAME_W * 100, 4)
+    if "top" in p:
+        p["top"] = round(p["top"] / FRAME_H * 100, 4)
+    if "height" in p:
+        p["height"] = round(p["height"] / FRAME_H * 100, 4)
+
+with open("panel_percent.json", "w", encoding="utf-8") as f:
+    json.dump(panel, f, ensure_ascii=False, indent=2)
+
+print("완료: panel_percent.json")

@@ -96,7 +96,7 @@
                     "v": 4,
                     "tabs": [],
                     "primary": {
-                        "width": 300,
+                        "width": 442.984,
                         "top": {
                             "tabs": [
                                 "info",
@@ -106,9 +106,9 @@
                                 "dashboard-2.0",
                                 "dashboard"
                             ],
-                            "height": 486,
+                            "height": 501.797,
                             "hidden": false,
-                            "active": "dashboard-2.0"
+                            "active": "config"
                         },
                         "bottom": {
                             "tabs": [
@@ -119,12 +119,12 @@
                         }
                     },
                     "secondary": {
-                        "width": 199,
+                        "width": 254.969,
                         "top": {
                             "tabs": [
                                 "explorer"
                             ],
-                            "height": 310,
+                            "height": 325.797,
                             "hidden": false,
                             "active": "explorer"
                         },
@@ -141,9 +141,12 @@
             "dialog": {
                 "export": {
                     "pretty": true,
-                    "json-view": true
+                    "json-view": false
                 }
             }
+        },
+        "debug": {
+            "filter": "filterCurrent"
         }
     }
 }

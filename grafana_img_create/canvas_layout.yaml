@@ -1,0 +1,37 @@
+site_id: SMART_BLDG
+background:
+  url: /public/img/epms/building.png
+  color: "#0B1220"
+value_box:
+  width: 180
+  height: 52
+items:
+  # 우측 KPI 영역
+  - {point: PT_B01_HV_KW,        label: "수전반 총 전력 (kW)",   x: 800, y: 100}
+  - {point: PT_B01_HV_PF,        label: "수전반 역률 (%)",       x: 800, y: 160}
+  - {point: PT_B01_HV_KWH,       label: "누적 전력량 (kWh)",     x: 800, y: 220}
+  - {point: PT_B01_TR01_LOAD,    label: "변압기 1호 부하율 (%)", x: 800, y: 280}
+  - {point: PT_B01_HV_VCB_ST,    label: "수전 VCB (1=투입)",     x: 800, y: 340}
+  - {point: PT_B01_LV_ACB_ST,    label: "저압 ACB (1=투입)",     x: 800, y: 400}
+  - {point: PT_B01_LV_ACB_TRIP,  label: "저압 ACB 트립 (1=발생)", x: 800, y: 460}
+
+  # 건물 상단: 옥상 설비, 분전반 층
+  - {point: PT_B01_APFC_ALM,     label: "역률보상반 경보",       x: 300, y: 40}
+  - {point: PT_FL25_DB_KW,       label: "25층 (kW)",             x: 300, y: 100}
+  - {point: PT_FL24_DB_KW,       label: "24층 (kW)",             x: 300, y: 160}
+  - {point: PT_FL23_DB_KW,       label: "23층 (kW)",             x: 300, y: 220}
+  - {point: PT_FL22_DB_KW,       label: "22층 (kW)",             x: 300, y: 280}
+  - {point: PT_FL21_DB_KW,       label: "21층 (kW)",             x: 300, y: 340}
+  - {point: PT_FL20_DB_KW,       label: "20층 (kW)",             x: 300, y: 400}
+  - {point: PT_FL19_DB_KW,       label: "19층 (kW)",             x: 300, y: 460}
+  - {point: PT_FL19_DB_BRK_ST,   label: "19층 차단기 (1=투입)",   x: 520, y: 460}
+
+  # 건물 하단: 1층, 지하 설비
+  - {point: PT_FL01_DB_KW,       label: "1층 로비 (kW)",         x: 300, y: 560}
+  - {point: PT_B01_TR01_KW,      label: "변압기 1호 (kW)",       x: 40,  y: 620}
+  - {point: PT_B01_LV_KW,        label: "저압 주배전반 (kW)",     x: 240, y: 620}
+  - {point: PT_B01_LV_A,         label: "저압 전류 (A)",          x: 440, y: 620}
+  - {point: PT_B01_LV_V,         label: "저압 전압 (V)",          x: 640, y: 620}
+  - {point: PT_B01_DB_KW,        label: "B1 기계실 (kW)",        x: 40,  y: 690}
+  - {point: PT_B02_DB_KW,        label: "B2 주차장 (kW)",        x: 240, y: 690}
+  - {point: PT_B03_DB_KW,        label: "B3 주차장 (kW)",        x: 440, y: 690}

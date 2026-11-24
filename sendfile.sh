@@ -5,7 +5,7 @@
 # ==========================================
 KEY_FILE="aws_certs/ec2.pem"
 TARGET_USER="ec2-user"                # 원격 서버 접속 계정
-TARGET_HOST="3.39.25.21"           # 원격 서버 IP 또는 도메인
+TARGET_HOST="54.116.112.254"           # 원격 서버 IP 또는 도메인
 TARGET_DIR="/home/ec2-user/"  # 원격 서버 저장 경로 (미리 생성되어 있어야 함)
 SSH_PORT="22"                         # SSH 포트 (기본값: 22)
 

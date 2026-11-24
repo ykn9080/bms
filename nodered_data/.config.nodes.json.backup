@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "5.0.8",
+        "version": "5.0.10",
         "local": false,
         "user": false,
         "nodes": {
@@ -1051,6 +1051,100 @@
                 "user": false,
                 "module": "node-red-node-mysql",
                 "file": "/data/node_modules/node-red-node-mysql/68-mysql.js"
+            }
+        }
+    },
+    "node-red-contrib-postgresql": {
+        "name": "node-red-contrib-postgresql",
+        "version": "0.16.2",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "postgresql": {
+                "name": "postgresql",
+                "types": [
+                    "postgreSQLConfig",
+                    "postgresql"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-postgresql",
+                "file": "/data/node_modules/node-red-contrib-postgresql/postgresql.js"
+            }
+        }
+    },
+    "node-red-contrib-bacnet": {
+        "name": "node-red-contrib-bacnet",
+        "version": "0.3.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "BACnet-Client": {
+                "name": "BACnet-Client",
+                "types": [
+                    "BACnet-Client"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-client.js"
+            },
+            "BACnet-Device": {
+                "name": "BACnet-Device",
+                "types": [
+                    "BACnet-Device"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-device.js"
+            },
+            "BACnet-Instance": {
+                "name": "BACnet-Instance",
+                "types": [
+                    "BACnet-Instance"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-instance.js"
+            },
+            "BACnet-Read": {
+                "name": "BACnet-Read",
+                "types": [
+                    "BACnet-Read"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-read.js"
+            },
+            "BACnet-Write": {
+                "name": "BACnet-Write",
+                "types": [
+                    "BACnet-Write"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-write.js"
+            },
+            "BACnet-Command": {
+                "name": "BACnet-Command",
+                "types": [
+                    "BACnet-Command"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-bacnet",
+                "file": "/data/node_modules/node-red-contrib-bacnet/bacnet/bacnet-command.js"
             }
         }
     }

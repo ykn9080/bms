@@ -1,0 +1,101 @@
+0 verbose cli /usr/local/bin/node /usr/src/node-red/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.21.0
+2 info using node@v24.21.0
+3 silly config load:file:/usr/src/node-red/node_modules/npm/npmrc
+4 silly config load:file:/data/.npmrc
+5 silly config load:file:/usr/src/node-red/.npmrc
+6 silly config load:file:/usr/local/etc/npmrc
+7 verbose title npm install node-red-contrib-bacnet@0.3.0
+8 verbose argv "install" "--no-audit" "--no-update-notifier" "--no-fund" "--save" "--save-prefix" "~" "--omit" "dev" "--engine-strict" "--" "node-red-contrib-bacnet@0.3.0"
+9 verbose logfile logs-max:10 dir:/data/.npm/_logs/2026-11-04T08_26_19_694Z-
+10 verbose logfile /data/.npm/_logs/2026-11-04T08_26_19_694Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:587202560 maxSize:146800640 maxEntrySize:73400320
+13 silly idealTree buildDeps
+14 silly fetch manifest node-red-contrib-bacnet@0.3.0
+15 silly packumentCache full:https://registry.npmjs.org/node-red-contrib-bacnet cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/node-red-contrib-bacnet 241ms (cache miss)
+17 silly packumentCache full:https://registry.npmjs.org/node-red-contrib-bacnet set size:undefined disposed:false
+18 silly placeDep ROOT node-red-contrib-bacnet@0.3.0 OK for: node-red-project@0.0.1 want: 0.3.0
+19 silly fetch manifest debug@~4.3.4
+20 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+21 http fetch GET 200 https://registry.npmjs.org/debug 24ms (cache miss)
+22 silly packumentCache full:https://registry.npmjs.org/debug set size:undefined disposed:false
+23 silly fetch manifest node-bacnet@~0.2.4
+24 silly packumentCache full:https://registry.npmjs.org/node-bacnet cache-miss
+25 http fetch GET 200 https://registry.npmjs.org/node-bacnet 172ms (cache miss)
+26 silly packumentCache full:https://registry.npmjs.org/node-bacnet set size:undefined disposed:false
+27 silly fetch manifest underscore@~1.13.6
+28 silly packumentCache full:https://registry.npmjs.org/underscore cache-miss
+29 http fetch GET 200 https://registry.npmjs.org/underscore 197ms (cache miss)
+30 silly packumentCache full:https://registry.npmjs.org/underscore set size:undefined disposed:false
+31 silly placeDep node_modules/node-red-contrib-bacnet debug@4.3.7 OK for: node-red-contrib-bacnet@0.3.0 want: ~4.3.4
+32 silly placeDep ROOT node-bacnet@0.2.4 OK for: node-red-contrib-bacnet@0.3.0 want: ~0.2.4
+33 silly placeDep ROOT underscore@1.13.8 OK for: node-red-contrib-bacnet@0.3.0 want: ~1.13.6
+34 silly fetch manifest ms@^2.1.3
+35 silly packumentCache full:https://registry.npmjs.org/ms cache-miss
+36 http fetch GET 200 https://registry.npmjs.org/ms 20ms (cache miss)
+37 silly packumentCache full:https://registry.npmjs.org/ms set size:undefined disposed:false
+38 silly fetch manifest debug@^4.1.1
+39 silly packumentCache full:https://registry.npmjs.org/debug cache-miss
+40 http cache https://registry.npmjs.org/debug 4ms (cache hit)
+41 silly packumentCache full:https://registry.npmjs.org/debug set size:195840 disposed:false
+42 silly fetch manifest iconv-lite@^0.5.1
+43 silly packumentCache full:https://registry.npmjs.org/iconv-lite cache-miss
+44 http fetch GET 200 https://registry.npmjs.org/iconv-lite 21ms (cache updated)
+45 silly packumentCache full:https://registry.npmjs.org/iconv-lite set size:undefined disposed:false
+46 silly fetch manifest underscore@^1.10.2
+47 silly packumentCache full:https://registry.npmjs.org/underscore cache-miss
+48 http cache https://registry.npmjs.org/underscore 4ms (cache hit)
+49 silly packumentCache full:https://registry.npmjs.org/underscore set size:160144 disposed:false
+50 silly placeDep node_modules/node-bacnet debug@4.4.3 OK for: node-bacnet@0.2.4 want: ^4.1.1
+51 silly placeDep node_modules/node-bacnet iconv-lite@0.5.2 OK for: node-bacnet@0.2.4 want: ^0.5.1
+52 silly placeDep node_modules/node-bacnet ms@2.1.3 OK for: debug@4.4.3 want: ^2.1.3
+53 silly placeDep node_modules/node-red-contrib-bacnet ms@2.1.3 OK for: debug@4.3.7 want: ^2.1.3
+54 silly reify moves {}
+55 http cache underscore@https://registry.npmjs.org/underscore/-/underscore-1.13.8.tgz 0ms (cache hit)
+56 http cache node-red-contrib-bacnet@https://registry.npmjs.org/node-red-contrib-bacnet/-/node-red-contrib-bacnet-0.3.0.tgz 0ms (cache hit)
+57 http cache node-bacnet@https://registry.npmjs.org/node-bacnet/-/node-bacnet-0.2.4.tgz 0ms (cache hit)
+58 http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+59 http cache debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 0ms (cache hit)
+60 http cache ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 0ms (cache hit)
+61 http cache iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.5.2.tgz 0ms (cache hit)
+62 http cache debug@https://registry.npmjs.org/debug/-/debug-4.3.7.tgz 0ms (cache hit)
+63 silly tarball no local data for underscore@https://registry.npmjs.org/underscore/-/underscore-1.13.8.tgz. Extracting by manifest.
+64 silly tarball no local data for node-red-contrib-bacnet@https://registry.npmjs.org/node-red-contrib-bacnet/-/node-red-contrib-bacnet-0.3.0.tgz. Extracting by manifest.
+65 silly tarball no local data for node-bacnet@https://registry.npmjs.org/node-bacnet/-/node-bacnet-0.2.4.tgz. Extracting by manifest.
+66 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.4.3.tgz. Extracting by manifest.
+67 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz. Extracting by manifest.
+68 silly tarball no local data for ms@https://registry.npmjs.org/ms/-/ms-2.1.3.tgz. Extracting by manifest.
+69 silly tarball no local data for iconv-lite@https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.5.2.tgz. Extracting by manifest.
+70 silly tarball no local data for debug@https://registry.npmjs.org/debug/-/debug-4.3.7.tgz. Extracting by manifest.
+71 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 47ms (cache miss)
+72 http fetch GET 200 https://registry.npmjs.org/ms/-/ms-2.1.3.tgz 51ms (cache miss)
+73 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.4.3.tgz 58ms (cache miss)
+74 http fetch GET 200 https://registry.npmjs.org/debug/-/debug-4.3.7.tgz 58ms (cache miss)
+75 http fetch GET 200 https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.5.2.tgz 79ms (cache miss)
+76 http fetch GET 200 https://registry.npmjs.org/node-bacnet/-/node-bacnet-0.2.4.tgz 190ms (cache miss)
+77 http fetch GET 200 https://registry.npmjs.org/node-red-contrib-bacnet/-/node-red-contrib-bacnet-0.3.0.tgz 196ms (cache miss)
+78 http fetch GET 200 https://registry.npmjs.org/underscore/-/underscore-1.13.8.tgz 269ms (cache miss)
+79 info run node-red-contrib-bacnet@0.3.0 postinstall node_modules/node-red-contrib-bacnet node ./supporter.js
+80 info run node-red-contrib-bacnet@0.3.0 postinstall { code: 0, signal: null }
+81 silly ADD node_modules/underscore
+82 silly ADD node_modules/node-bacnet
+83 silly ADD node_modules/node-bacnet/node_modules/ms
+84 silly ADD node_modules/node-bacnet/node_modules/iconv-lite
+85 silly ADD node_modules/node-bacnet/node_modules/debug
+86 silly ADD node_modules/node-red-contrib-bacnet
+87 silly ADD node_modules/node-red-contrib-bacnet/node_modules/ms
+88 silly ADD node_modules/node-red-contrib-bacnet/node_modules/debug
+89 warn install-scripts 3 packages have install scripts not yet covered by allowScripts:
+89 warn install-scripts   core-js@3.50.0 (postinstall: node -e "try{require('./postinstall')}catch(e){}")
+89 warn install-scripts   node-red-dashboard@3.6.6 (postinstall: node fixgrid.js)
+89 warn install-scripts   node-red-contrib-bacnet@0.3.0 (postinstall: node ./supporter.js)
+89 warn install-scripts
+89 warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+90 verbose cwd /data
+91 verbose os Linux 7.0.0-38-generic
+92 verbose node v24.21.0
+93 verbose npm  v11.21.0
+94 verbose exit 0
+95 info ok

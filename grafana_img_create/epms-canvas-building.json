@@ -1,0 +1,1755 @@
+{
+  "uid": "epms-canvas-building",
+  "title": "EPMS 건물 단선도 (배경 이미지)",
+  "tags": [
+    "EPMS",
+    "demo"
+  ],
+  "timezone": "Asia/Seoul",
+  "schemaVersion": 40,
+  "version": 1,
+  "refresh": "5s",
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "canvas",
+      "title": "EPMS 건물 단선도",
+      "gridPos": {
+        "h": 25,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "datasource": {
+        "type": "influxdb",
+        "uid": "eg18i4yqw51q8a"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "query": "from(bucket: \"node_red_bucket\") |> range(start: -1m) |> filter(fn: (r) => r._measurement == \"epms\" and r._field == \"value\") |> last() |> pivot(rowKey: [\"_time\"], columnKey: [\"point_id\"], valueColumn: \"_value\")"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "inlineEditing": true,
+        "showAdvancedTypes": true,
+        "panZoom": false,
+        "root": {
+          "type": "frame",
+          "name": "Element root",
+          "background": {
+            "color": {
+              "fixed": "#0B1220"
+            },
+            "image": {
+              "fixed": "/public/img/epms/building.png",
+              "mode": "fixed"
+            }
+          },
+          "elements": [
+            {
+              "type": "rectangle",
+              "name": "B01_HV_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "수전반 총 전력 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 100,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_HV_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_HV_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 118,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_HV_PF_BOX",
+              "config": {
+                "text": {
+                  "fixed": "수전반 역률 (%)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 160,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_HV_PF_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_HV_PF",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 178,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_HV_KWH_BOX",
+              "config": {
+                "text": {
+                  "fixed": "누적 전력량 (kWh)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 220,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_HV_KWH_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_HV_KWH",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 238,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_TR01_LOAD_BOX",
+              "config": {
+                "text": {
+                  "fixed": "변압기 1호 부하율 (%)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 280,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_TR01_LOAD_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_TR01_LOAD",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 298,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_HV_VCB_ST_BOX",
+              "config": {
+                "text": {
+                  "fixed": "수전 VCB (1=투입)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 340,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_HV_VCB_ST_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_HV_VCB_ST",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 358,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_LV_ACB_ST_BOX",
+              "config": {
+                "text": {
+                  "fixed": "저압 ACB (1=투입)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 400,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_LV_ACB_ST_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_LV_ACB_ST",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 418,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_LV_ACB_TRIP_BOX",
+              "config": {
+                "text": {
+                  "fixed": "저압 ACB 트립 (1=발생)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 460,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_LV_ACB_TRIP_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_LV_ACB_TRIP",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 800,
+                "top": 478,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_APFC_ALM_BOX",
+              "config": {
+                "text": {
+                  "fixed": "역률보상반 경보",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 40,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_APFC_ALM_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_APFC_ALM",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 58,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL25_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "25층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 100,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL25_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL25_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 118,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL24_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "24층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 160,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL24_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL24_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 178,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL23_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "23층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 220,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL23_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL23_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 238,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL22_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "22층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 280,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL22_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL22_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 298,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL21_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "21층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 340,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL21_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL21_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 358,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL20_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "20층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 400,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL20_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL20_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 418,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL19_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "19층 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 460,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL19_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL19_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 478,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL19_DB_BRK_ST_BOX",
+              "config": {
+                "text": {
+                  "fixed": "19층 차단기 (1=투입)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 520,
+                "top": 460,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL19_DB_BRK_ST_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL19_DB_BRK_ST",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 520,
+                "top": 478,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "FL01_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "1층 로비 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 560,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "FL01_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_FL01_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 300,
+                "top": 578,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_TR01_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "변압기 1호 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 40,
+                "top": 620,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_TR01_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_TR01_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 40,
+                "top": 638,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_LV_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "저압 주배전반 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 240,
+                "top": 620,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_LV_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_LV_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 240,
+                "top": 638,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_LV_A_BOX",
+              "config": {
+                "text": {
+                  "fixed": "저압 전류 (A)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 440,
+                "top": 620,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_LV_A_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_LV_A",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 440,
+                "top": 638,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_LV_V_BOX",
+              "config": {
+                "text": {
+                  "fixed": "저압 전압 (V)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 640,
+                "top": 620,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_LV_V_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_LV_V",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 640,
+                "top": 638,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B01_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "B1 기계실 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 40,
+                "top": 690,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B01_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B01_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 40,
+                "top": 708,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B02_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "B2 주차장 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 240,
+                "top": 690,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B02_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B02_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 240,
+                "top": 708,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "rectangle",
+              "name": "B03_DB_KW_BOX",
+              "config": {
+                "text": {
+                  "fixed": "B3 주차장 (kW)",
+                  "mode": "fixed"
+                },
+                "color": {
+                  "fixed": "#E5E7EB"
+                },
+                "align": "center",
+                "valign": "top",
+                "size": 12
+              },
+              "background": {
+                "color": {
+                  "fixed": "#111827"
+                }
+              },
+              "border": {
+                "color": {
+                  "fixed": "#4B5563"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 440,
+                "top": 690,
+                "width": 180,
+                "height": 52,
+                "rotation": 0
+              }
+            },
+            {
+              "type": "metric-value",
+              "name": "B03_DB_KW_VAL",
+              "config": {
+                "text": {
+                  "field": "PT_B03_DB_KW",
+                  "mode": "field",
+                  "fixed": ""
+                },
+                "color": {
+                  "fixed": "#34D399"
+                },
+                "align": "center",
+                "valign": "middle",
+                "size": 18
+              },
+              "background": {
+                "color": {
+                  "fixed": "transparent"
+                }
+              },
+              "constraint": {
+                "horizontal": "left",
+                "vertical": "top"
+              },
+              "placement": {
+                "left": 440,
+                "top": 708,
+                "width": 180,
+                "height": 34,
+                "rotation": 0
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
